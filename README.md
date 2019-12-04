@@ -28,7 +28,7 @@ https://docs.vmware.com/en/VMware-NSX-T-Data-Center/2.5/rn/NSX-Container-Plugin-
 
 This series does **NOT** provide the generic intro level information on NSX-T or K8S. To have a basic understanding of NSX-T please watch the VMworld session recordings. Similarly for K8S, Pluralsight and A Cloud Guru trainings by Nigel Poulton and Udemy trainings by Mumshad Mannambeth is highly recommended.  
 
-<b>The [Part 1](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.4.x/blob/master/Part%201/README.md) , [Part 2](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.4.x/blob/master/Part%202/README.md) and [Part 3](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.4.x/blob/master/Part%203/README.md) of the NSX-T 2.4.x series</b> can be reviewed to get a basic understanding of how the integration of NSX-T with K8S looks like, as this series will be focusing on the delta between NSX-T 2.4.x and NSX-T 2.5.x and it may be referring some of the implementation details to the things mentioned in the previous series.
+<b>The [Part 1](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.4.x/blob/master/Part%201/README.md) , [Part 2](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.4.x/blob/master/Part%202/README.md) and [Part 3](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.4.x/blob/master/Part%203/README.md) of the NSX-T 2.4.x series</b> can be reviewed to get a basic understanding of how the integration of NSX-T with K8S looks like. This series will be focusing on the delta between NSX-T 2.4.x and NSX-T 2.5.x and it may be referring some of the implementation details to the things mentioned in the previous series.
 
 ## [Part 1](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.5.x/blob/master/Part%201/README.md)
 
