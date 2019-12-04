@@ -1,5 +1,6 @@
 ## VMware NSX-T 2.5.x and Kubernetes (K8S) Guide
-by Dumlu Timuralp [@dumlutimuralp](https://twitter.com/dumlutimuralp) / [LinkedIn](https://www.linkedin.com/in/dumlutimuralp/)  
+by Dumlu Timuralp [@dumlutimuralp](https://twitter.com/dumlutimuralp) / [LinkedIn](https://www.linkedin.com/in/dumlutimuralp/) 
+
 _**This disclaimer informs readers that the views, thoughts, and opinions expressed in this series of posts belong solely to the author, and not necessarily to the author’s employer, organization, committee or other group or individual.**_
 
 The goal of this series of posts is to outline and explain the steps to integrate VMware NSX-T Platform to Kubernetes control plane. 
