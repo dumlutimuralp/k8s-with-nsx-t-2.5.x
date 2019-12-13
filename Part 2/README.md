@@ -135,13 +135,13 @@ Configure Docker Hub as the APT source rather than the Ubuntu 18.04 repository
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 </code></pre>
 
-### Update Docker Packages
+### Update Docker Packages
 
 <pre><code>
 sudo apt-get update
 </code></pre>
 
-### Check Cached Docker-CE Package in Repository
+### Check Cached Docker-CE Package in Repository
 
 <pre><code>
 vmware@k8s-master:~$<b>sudo apt-cache policy docker-ce</b>
@@ -164,7 +164,7 @@ vmware@k8s-master:~$
 </code></pre>
 
 
-### Install Docker CE 18.0.6.0 
+### Install Docker CE 18.0.6.0 
 
 <pre><code>
 sudo apt-get install docker-ce=18.06.0~ce~3-0~ubuntu
@@ -275,7 +275,7 @@ vmware@k8s-master:~$
 
 Same check can be done for "kubectl" and "kubeadm"
 
-### Install Kubernetes
+### Install Kubernetes
 
 * Install kubernetes on master node 
 
