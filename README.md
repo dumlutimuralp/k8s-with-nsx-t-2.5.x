@@ -5,7 +5,7 @@ _**This disclaimer informs readers that the views, thoughts, and opinions expres
 
 The goal of this series of posts is to outline and explain the steps to integrate VMware NSX-T 2.5.0, using its declrarative called **Policy API** , with Kubernetes control plane.
 
-Software components used are shown below.
+Software components used are listed below.
 
 - vCenter 6.7 U1b (Build 11727113)
 - ESX 6.7 U2 (Build 13006603)
