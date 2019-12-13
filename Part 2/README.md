@@ -2,10 +2,10 @@
 [Home Page](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.5.x)
 
 # Table of Contents
-[NSX Components in K8S Integration](#NSX-Components-in-K8S-Integration)  
-[Ubuntu 18.04 Installation](#Ubuntu-18.04-Installation) 
-[Docker Installation](#Docker-Installation)
-[K8S Installation](#K8S-Installation)
+[NSX Components in K8S Integration](#NSX-Components-in-K8S-Integration)   
+[Ubuntu 18.04 Installation](#Ubuntu-18.04-Installation)  
+[Docker Installation](#Docker-Installation) 
+[K8S Installation](#K8S-Installation) 
 
 # NSX Components in K8S Integration
 [Back Table of Contents](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.5.x/tree/master/Part%202#Table-of-Contents)
