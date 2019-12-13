@@ -75,7 +75,7 @@ Previously configured uplink segment ("OCP-K8S-Uplink_Segment") is connected to 
 
 ![](2019-12-04-16-38-09.png)
 
-BGP is configured between Tier0 and physical layer switch however it is not mandatory. HA VIP with static rooutiing can also be used.
+BGP is configured between Tier0 and physical layer switch however it is not mandatory. HA VIP with static roouting can also be used.
 
 ![](2019-12-04-16-34-37.png)
 
