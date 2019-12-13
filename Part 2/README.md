@@ -22,7 +22,9 @@ This section focuses only on the differences between NSX-T 2.4 and NSX-T 2.5' s 
 
 * Fifth difference is the NSX-T Policy API is supported with K8S. As mentioned Policy API corresponds to Simplified UI in the NSX-T GUI. This also is presented as an option in the NCP.ini.
 
-* Sixth difference is the K8S Network Policy driven NSX-T DFW rules can be placed in the "Application" category of the DFW in the simplified UI. (with three different options as allow cluster, allow namespace, none)  This is also presented as a new NCP.ini
+* Sixth difference is the K8S Network Policy driven NSX-T DFW rules can be placed in the "Application" category of the DFW in the simplified UI. (with three different options as allow cluster, allow namespace, none)  This is also presented as a new NCP.ini parameter. ("baseline_policy_type")
+
+* There are additional new parameters introduced in NCP.ini file which will be explained later on.
 
 # Ubuntu 18.04 Installation
 [Back Table of Contents](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.5.x/tree/master/Part%202#Table-of-Contents)
