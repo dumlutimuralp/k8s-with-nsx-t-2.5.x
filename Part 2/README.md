@@ -8,7 +8,7 @@
 [K8S Installation](#K8S-Installation) 
 
 # NSX Components in K8S Integration
-[Back Table of Contents](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.5.x/tree/master/Part%202#Table-of-Contents)
+[Back to Table of Contents](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.5.x/tree/master/Part%202#Table-of-Contents)
 
 This section focuses only on the differences between NSX-T 2.4 and NSX-T 2.5' s integration with K8S. For the detailed explanation of the architecture please refer to Part 2 of the prevous series (K8S with NSX-T 2.4.x) which is published [here](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.4.x/blob/master/Part%202/README.md)
 
@@ -27,7 +27,7 @@ This section focuses only on the differences between NSX-T 2.4 and NSX-T 2.5' s 
 * There are additional new parameters introduced in NCP.ini file which will be explained later on.
 
 # Ubuntu 18.04 Installation
-[Back Table of Contents](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.5.x/tree/master/Part%202#Table-of-Contents)
+[Back to Table of Contents](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.5.x/tree/master/Part%202#Table-of-Contents)
 
 For this lab three VM' s will be configured. Below is a screenshot from one of the VM' s hardware configuration for Ubuntu 18.04 OS 64 bit.
 
@@ -107,7 +107,7 @@ How to do it on Ubuntu => https://www.tecmint.com/disable-swap-partition-in-cent
 To be compliant with the versions listed iin [NCP 2.5 Release Notes](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/2.5/rn/NSX-Container-Plugin-25-Release-Notes.html#sysreqs) certain version of K8S will be installed. For this lab K8S 1.14 will be installed. To check the compatibility of K8S <-> Docker [this URL](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG-1.14.md#external-dependencies) can be reviewed. For this lab Docker 18.06 will be installed.
 
 # Docker Installation
-[Back Table of Contents](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.5.x/tree/master/Part%202#Table-of-Contents)
+[Back to Table of Contents](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.5.x/tree/master/Part%202#Table-of-Contents)
 
 
 * Escalate to root in the shell (if not already)
@@ -228,7 +228,7 @@ vmware@k8s-master:~$ <b>sudo systemctl status docker</b>
 </code></pre>
 
 # K8S Installation
-[Back Table of Contents](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.5.x/tree/master/Part%202#Table-of-Contents)
+[Back to Table of Contents](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.5.x/tree/master/Part%202#Table-of-Contents)
 
 
 ### Install GPG for Google Repository
