@@ -6,7 +6,7 @@
 [Current State](#Current-State)  
 
 # Lab Infrastructure
-[Back Table of Contents](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.5.x/tree/master/Part%202#Table-of-Contents)
+[Back to Table of Contents](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.5.x/tree/master/Part%202#Table-of-Contents)
 
 Two ESX clusters are used for this demonstration. One is "ManagementEdge" cluster (ESX1 and ESX2) and the other is "WorkloadT" cluster (ESX3 and ESX4)
 
@@ -41,7 +41,7 @@ A screenshot from how the ESX connectivity looks like in vCenter GUI is shown be
 ![](2019-12-04-15-25-48.png)
 
 # Current State 
-[Back Table of Contents](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.5.x/tree/master/Part%202#Table-of-Contents)
+[Back to Table of Contents](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.5.x/tree/master/Part%202#Table-of-Contents)
 
 Currently the logical networking topology looks like below. 
 
