@@ -37,7 +37,7 @@ This series will be focusing on the delta between NSX-T 2.4.x and NSX-T 2.5.x an
 * Lab Infrastructure
 * Current State
 
-## [Part 2](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.4.x/blob/master/?????)
+## [Part 2](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.5.x/blob/master/Part%202/README.md)
 
 
 ## [Part 3](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.4.x/blob/master/?????)
