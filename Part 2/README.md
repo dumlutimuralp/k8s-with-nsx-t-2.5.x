@@ -66,7 +66,7 @@ network:
   version: 2
   renderer: networkd
   ethernets:
-    ens3:
+    ens160:
       dhcp4: no
       addresses:
         - 10.190.22.10/24
