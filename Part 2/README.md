@@ -33,9 +33,12 @@ For this lab three VM' s will be configured. Below is a screenshot from one of t
 
 ![](2019-12-13-15-57-25.png)
 
+Note : As mentioned in Part 1; two network interfaces will be used oon each Ubuntu node.
+
 For Ubuntu 18.04 installation [this article](https://www.linuxtechi.com/ubuntu-18-04-lts-desktop-installation-guide-screenshots/) outlines the steps needed in a simplified flow structure.
 
-Additional steps needed to be followed to prepare the Ubuntu OS for Docker and K8S installation. Repeat Steps X X X below for all three nodes. In this lab "k8s-master" , "k8s-worker1" and "k8s-worker2" are configured.
+Additional steps needed to be followed to prepare the Ubuntu OS for Docker and K8S installation. <b>Repeat Steps 1-5 below for all three nodes.</b> In this lab "k8s-master" , "k8s-worker1" and "k8s-worker2" are configured.
+
 
 1. Configure a unique hostname :
 
@@ -51,9 +54,22 @@ sudo vi /etc/hosts
 127.0.1.1 k8s-master
 </code></pre>
 
-Worker nodes' hostnames are not included in the hosts file as DNS is used in this lab. If DNS does not exist then each node should be able to access each other by name hence all nodes need to be included to the hosts file on each of them.
+Worker nodes' hostnames are not included in the hosts file oon the master, as DNS is used in this lab. If DNS does not exist then each node should be able to access each other by name hence all nodes need to be included to the hosts file on each of them.
 
-3. Configure a static IP on each node.
+3. Check the interfaces on the node
+
+<pre><code>
+vmware@k8s-master:~$ <b>ip link show</b>
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+2: ens160: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP mode DEFAULT group default qlen 1000
+    link/ether 00:50:56:b4:28:b8 brd ff:ff:ff:ff:ff:ff
+3: ens192: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq master ovs-system state UP mode DEFAULT group default qlen 1000
+    link/ether 00:50:56:b4:0a:52 brd ff:ff:ff:ff:ff:ff
+</code></pre>
+
+
+4. Configure a static IP on the first interface
 
 <pre><code>
 sudo vi /etc/netplan/50-cloud-init.yaml
@@ -76,7 +92,6 @@ network:
           addresses: [192.168.1.185]
 </code></pre>
 
-
 Apply Changes :
 
 <pre><code>
@@ -85,10 +100,29 @@ sudo netplan apply
 
 Verify Changes : 
 
-ip address show dev ens160
+<pre><code>
+vmware@k8s-master:~$ <b>ip address show dev ens160</b>
+2: ens160: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
+    link/ether 00:50:56:b4:28:b8 brd ff:ff:ff:ff:ff:ff
+    inet 10.190.22.10/24 brd 10.190.22.255 scope global ens160
+       valid_lft forever preferred_lft forever
+    inet6 fe80::250:56ff:feb4:28b8/64 scope link
+       valid_lft forever preferred_lft forever
+vmware@k8s-master:~$
+</code></pre>
 
+There should not be any IPv4 addresses configured on ens192 interface, can be verified as below.
 
-4. Turn off Swap on each node
+<pre><code>
+vmware@k8s-master:~$ <b>ip address show dev ens192</b>
+3: ens192: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq master ovs-system state UP group default qlen 1000
+    link/ether 00:50:56:b4:0a:52 brd ff:ff:ff:ff:ff:ff
+    inet6 fe80::250:56ff:feb4:a52/64 scope link
+       valid_lft forever preferred_lft forever
+vmware@k8s-master:~$
+</code></pre>
+
+5. Turn off Swap on each node
 
 <pre><code>
 sudo swapoff -a
