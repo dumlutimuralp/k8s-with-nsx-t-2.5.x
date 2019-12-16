@@ -30,7 +30,7 @@ This series does **NOT** provide the generic intro level information on NSX-T or
 
 <b>The [Part 1](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.4.x/blob/master/Part%201/README.md) , [Part 2](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.4.x/blob/master/Part%202/README.md) and [Part 3](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.4.x/blob/master/Part%203/README.md) of the NSX-T 2.4.x series</b> can be reviewed to get a basic understanding of how the integration of NSX-T with K8S looks like. <b>[Part 5](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.4.x/blob/master/Part%205/README.md) and [Part 6](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.4.x/blob/master/Part%206/README.md)</b> of same series may still help in understanding and learning K8S Service an K8S Network Policy constructs though.
 
-This series will be focusing on the delta between NSX-T 2.4.x and NSX-T 2.5.x and it may be referring some of the implementation details to the things mentioned in the previous series.
+This series will be focusing on the delta between NSX-T 2.4.x and NSX-T 2.5.x hence it may refer to some of the points that were mentioned in previous series [K8S with NSX-T 2.4.x](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.4.x)
 
 ## [Part 1](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.5.x/blob/master/Part%201/README.md)
 
