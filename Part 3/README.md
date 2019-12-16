@@ -3,7 +3,7 @@
 
 # Table of Contents
 [NSX Downloadables for K8S](#NSX-Downloadables-for-K8S)  
-[Preparing NSX Objects for K8S](#Preparing-NSX-Objects-for-K8S)
+[Preparing NSX Objects for K8S](#Preparing-NSX-Objects-for-K8S)  
 [Content of Manifest File](#Content-of-Manifest-File)
 
 # NSX Components in K8S Integration
