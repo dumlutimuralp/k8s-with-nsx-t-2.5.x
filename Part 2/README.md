@@ -359,7 +359,7 @@ The node will show up in "NotReady" state since the CNI plugin is not installed.
 <pre><code>
 vmware@k8s-master:~$ <b>kubectl get nodes</b>
 NAME          STATUS      ROLES    AGE   VERSION
-k8s-master    NotReady    master   10m    v1.14.7
+k8s-master    <b>NotReady</b>    master   10m    v1.14.7
 vmware@k8s-master:~$
 </code></pre>
 
