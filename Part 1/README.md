@@ -93,9 +93,9 @@ The "K8S-NodeManagement" segment is configured below and attached to the previou
 
 ![](2019-12-04-16-56-04.png)
 
-At this stage K8S-NodeManagement segment subnet (10.190.22.0 /24) should be accessible from anywhere.
+At this stage <b>K8S-NodeManagement segment subnet (10.190.22.0 /24) should be accessible from anywhere.</b>
 
-The "K8S-NodeTransport" segment is configured below and as mentioned before it is NOT configured with a subnet nor it is connected to any Tier0 or Tier1 router.
+The "K8S-NodeTransport" segment is configured below and as mentioned before <b>it is NOT configured with a subnet nor it is connected to any Tier0 or Tier1 router.</b>
 
 ![](2019-12-04-17-02-56.png)
 
