@@ -16,4 +16,4 @@ When "Go To Downloads" is clicked the details of the content can be reviewed in 
 
 ![](2019-12-16_17-43-07.jpg)
 
-NSX Container Plug-in for Kubernetes and Cloud Foundry - Installation and Administration Guide, published here, guides the user on the installation steps and the definition of the different components used for the NSX-T and K8S integration. Below is our own view and comments.
+NSX Container Plug-in for Kubernetes and Cloud Foundry - Installation and Administration Guide, published [here](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/2.5/ncp-kubernetes/GUID-FB641321-319D-41DC-9D16-37D6BA0BC0DE.html), guides the user on the installation steps and the definition of the different components used for the NSX-T and K8S integration. 
