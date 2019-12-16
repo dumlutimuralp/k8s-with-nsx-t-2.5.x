@@ -9,7 +9,8 @@
 # NSX Downloadables for K8S
 [Back to Table of Contents](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.5.x/tree/master/Part%203#Table-of-Contents)
 
-Kubernetes related NSX files can be downloaded from my.vmware.com(shown below)
+Kubernetes related NSX files can be downloaded from NSX-T download page at my.vmware.com (shown below)
+
 ![](2019-12-16_17-38-09.jpg)
 
 When "Go To Downloads" is clicked the details of the content can be reviewed in the following page (below)
