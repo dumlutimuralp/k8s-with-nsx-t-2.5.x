@@ -14,6 +14,6 @@ Kubernetes related NSX files can be downloaded from my.vmware.com(shown below)
 
 When "Go To Downloads" is clicked the details of the content can be reviewed in the following page (below)
 
-![](2019-12-16_17-41-01.jpg)
+![](2019-12-16_17-43-07.jpg)
 
 NSX Container Plug-in for Kubernetes and Cloud Foundry - Installation and Administration Guide, published here, guides the user on the installation steps and the definition of the different components used for the NSX-T and K8S integration. Below is our own view and comments.
