@@ -354,7 +354,7 @@ At this stage kubelet will provide the following error , which can be seen in th
   Ready            False   Tue, 03 Dec 2019 21:27:26 +0000   Tue, 03 Dec 2019 21:19:26 +0000   KubeletNotReady  <b>runtime network not ready: NetworkReady=false reason:NetworkPluginNotReady message:docker: network plugin is not ready: cni config uninitialized</b>
 </code></pre>
 
-The node will show up in "NotReady" state since the CNI plugin is not installed. This is expected.
+The node will show up in "NotReady" state <b>since the CNI plugin is not installed.</b> This is expected.
 
 <pre><code>
 vmware@k8s-master:~$ <b>kubectl get nodes</b>
