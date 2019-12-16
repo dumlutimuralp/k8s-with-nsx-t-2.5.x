@@ -18,6 +18,10 @@ This section focuses <b>only on the differences</b> between NSX-T 2.4 and NSX-T 
 
 * Third difference is the manifest for all the NSX-T related components are now packaged in a single YAML file. Those are, NSX Container Plugin (NCP) as a deployment, plus all the config parameters with it (NCP.ini as configmap ), the NSX infrastructure' s own namespace "nsx-system" , the role based access control architecture that is applied to that namespace, NSX NCP Bootstrap daemonset and NSX Node Agent as daemonset.
 
+Diagram highlighting the recent changes is shown below.
+
+![](2019-12-16_15-17-52.jpg)
+
 * Fourth difference is the NSX-T Policy API is supported with K8S. As mentioned Policy API corresponds to Simplified UI in the NSX-T GUI. This also is presented as an option in the NCP.ini.
 
 * Fifth difference is a new alternative topology option that is introduced with NSX-T 2.5. In all previous releases of NCP and NSX, each K8S namespace in a given K8S cluster used to have its own Tier1 Logical Router at all times. Source NAT for each K8S Namespaces was configured on Tier 0 Logical Router and also  K8S Ingress and Service Type Load Balancer for each K8S cluster was implemented on a seperate/dedicated Tier 1 Logical Router. <b>With NSX-T 2.5, there is an option ("single_tier_topology") which is presented in NCP.ini configmap of NCP deployment manifest. When that option is set to "True" then all these services are collapsed on a single Tier 1 Logical Router. </b> When a new namespace is provisioned that will be realized as a new downlink segment attached to that single Tier 1 Logical Router. All K8S Pods in the cluster also get Source NATed on that single Tier 1 Logical Router. K8S Ingress and Service Type Load Balancer VIPs are also realized on that single Tier 1 Logical Router. (If desired the Tier 1 Logical Router, to which the K8S Nodes' management ethernet is connected, can be used as that single/collapsed Tier 1 Logical Router for all functions mentioned above. The related parameter to be used in NCP.ini is "top_tier_router")
