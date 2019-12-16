@@ -16,11 +16,11 @@ This section focuses <b>only on the differences</b> between NSX-T 2.4 and NSX-T 
 
 * Second difference is <b>a new/additional container called "NSX-OVS" which is packaged within the well known "NSX Node Agent" Pod.</b> "NSX-OVS" contaiiner keeps the OVS daemon running on the container host. Which means the OVS daemon is run in the container' s IPC namespace. When someone logins to the container host itself he/she will not be able to perform OVS commands on the host itself.
 
-* Third difference is the manifest for all the NSX-T related components are now packaged in a single YAML file. Those are, NSX Container Plugin (NCP) as a deployment, plus all the config parameters with it (NCP.ini as configmap ), the NSX infrastructure' s own namespace "nsx-system" , the role based access control architecture that is applied to that namespace, NSX NCP Bootstrap daemonset and NSX Node Agent as daemonset.
-
-Diagram highlighting the recent changes is shown below.
+Diagram highlighting the recent changes mentioned above wth NCP 2.5 is shown below.
 
 ![](2019-12-16_15-17-52.jpg)
+
+* Third difference is the manifest for all the NSX-T related components are now packaged in a single YAML file. Those are, NSX Container Plugin (NCP) as a deployment, plus all the config parameters with it (NCP.ini as configmap ), the NSX infrastructure' s own namespace "nsx-system" , the role based access control architecture that is applied to that namespace, NSX NCP Bootstrap daemonset and NSX Node Agent as daemonset.
 
 * Fourth difference is the NSX-T Policy API is supported with K8S. As mentioned Policy API corresponds to Simplified UI in the NSX-T GUI. This also is presented as an option in the NCP.ini.
 
