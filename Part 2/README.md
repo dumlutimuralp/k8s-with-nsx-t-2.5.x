@@ -10,7 +10,7 @@
 # NSX Components in K8S Integration
 [Back to Table of Contents](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.5.x/tree/master/Part%202#Table-of-Contents)
 
-This section focuses only on the differences between NSX-T 2.4 and NSX-T 2.5' s integration with K8S. For the detailed explanation of the architecture please refer to [Part 2](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.4.x/blob/master/Part%202/README.md) of the prevous series (K8S with NSX-T 2.4.x).
+This section focuses <b>only on the differences</b> between NSX-T 2.4 and NSX-T 2.5' s integration with K8S. For the detailed explanation of the architecture please refer to [Part 2](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.4.x/blob/master/Part%202/README.md) of the prevous series (K8S with NSX-T 2.4.x).
 
 * First difference with NSX-T 2.5 is that previously the admin had to login to each K8S node; then install and configure CNI Plugin and Open vSwitch on each node seperately and alsoo upgraded manually. Now this is all managed and maintained by <b>a new K8S daemonset called "NSX-NCP-Bootstrap"</b>. Now with NSX-T 2.5.x, the "NSX-NCP-Bootstrap" Pod on each K8S node takes care of that. 
 
