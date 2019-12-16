@@ -39,6 +39,10 @@ This series will be focusing on the delta between NSX-T 2.4.x and NSX-T 2.5.x he
 
 ## [Part 2](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.5.x/blob/master/Part%202/README.md)
 
+* NSX Components in K8S Integration
+* Ubuntu 18.04 Installation
+* Docker Installation
+* K8S Installation
 
 ## [Part 3](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.5.x/blob/master/Part%203/README.md)
 
