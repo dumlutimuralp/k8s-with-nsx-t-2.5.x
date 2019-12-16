@@ -17,4 +17,9 @@ When "Go To Downloads" is clicked the details of the content can be reviewed in 
 
 ![](2019-12-16_17-43-07.jpg)
 
-NSX Container Plug-in for Kubernetes and Cloud Foundry - Installation and Administration Guide, published [here](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/2.5/ncp-kubernetes/GUID-FB641321-319D-41DC-9D16-37D6BA0BC0DE.html), guides the user on the installation steps.
+Once the .zip file is downloaded and extracted the content is as below.
+
+![](2019-12-16_22-06-35.jpg)
+
+NSX Container Plug-in for Kubernetes and Cloud Foundry - Installation and Administration Guide, published [here](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/2.5/ncp-kubernetes/GUID-FB641321-319D-41DC-9D16-37D6BA0BC0DE.html), guides the user on the installation steps. 
+
