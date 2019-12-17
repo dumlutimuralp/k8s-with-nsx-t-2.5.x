@@ -25,7 +25,7 @@ Once the .zip file is downloaded and extracted the content is as below.
 
 The breakdown of the content is following :
 
-* Kubernetes : This folder contains the unified manifest files (.yaml) and container images (.tar) for RHEL and Ubuntu operating systems. The same container image is used for NSX Node Agent, NSX Kube Proxy, NSX OVS and NSX NCP Boostrap containers. (Note that there is a container image file for Photon operating system which is used on nodes in Pivotal Application Services (PAS) solution)
+* Kubernetes : This folder contains the unified manifest file (.yaml) and container image (.tar) for RHEL and Ubuntu operating systems. The same container image is used for NSX Node Agent, NSX Kube Proxy, NSX OVS and NSX NCP Boostrap containers. (Note that there is a container image file for Photon operating system which is used on nodes in Pivotal Application Services (PAS) solution)
 
 * Openshift : This folder contains the unified manifes files (.yaml) for Openshift baremetal nodes andd Openshift virtual machine nodes.
 
