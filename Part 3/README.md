@@ -31,7 +31,7 @@ The breakdown of the content is following :
 
 * PAS : This folder contains the Pivotal Application Services (PAS) installation file. 
 
-* Cleanup Script : As the name suggests this folder contains the scripts to clean a policy API based or management API based NSX-T environment.
+* Cleanup Script : As the name suggests this folder contains the scripts to clean all the K8S related objects in NSX-T objecct database in a policy API based or management API based NSX-T environment.
 
 Since in this environment Ubuntu is the operating system for K8S nodes, "nsx-ncp-ubuntu-2.5.0.14628220.tar" and "ncp-ubuntu.yaml" will be used. 
 
