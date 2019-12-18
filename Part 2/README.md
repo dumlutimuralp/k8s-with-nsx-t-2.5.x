@@ -12,7 +12,7 @@
 
 This section focuses <b>only on the differences</b> between NSX-T 2.4 and NSX-T 2.5' s integration with K8S. For the detailed explanation of how the architecture looks like please refer to [Part 2](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.4.x/blob/master/Part%202/README.md) of the prevous series (K8S with NSX-T 2.4.x).
 
-* First difference with NCP 2.5 is that previously the admin had to login to each K8S node; then install and configure CNI Plugin and Open vSwitch (OVS) on each node seperately and also upgrade them manually. Now this is all managed and maintained by <b>a new K8S daemonset called "NSX-NCP-Bootstrap"</b>. "NSX-NCP-Bootstrap" Pod on each K8S node bootstraps the CNI Plugin and OVS on each node and attaches the selected ethernet interface on the respective node to the OVS.
+* First difference with NCP 2.5 is that previously the admin had to login to each K8S node; then install and configure CNI Plugin and Open vSwitch (OVS) on each node seperately and also upgrade them manually. Now this is all managed and maintained by <b>a new K8S daemonset called "NSX-NCP-Bootstrap"</b>. "NSX-NCP-Bootstrap" Pod on each K8S node bootstraps the CNI Plugin and OVS on each node and attaches the selected ethernet interface on the respective node to the OVS. "NSX-NCP-Bootstracp" Pod has a single container in it which is named as "nsx-dummy".
 
 * Second difference is <b>a new/additional container called "NSX-OVS" which is packaged within the well known "NSX Node Agent" Pod.</b> "NSX-OVS" container keeps the OVS daemon running on the K8S node. Which means the OVS daemon is run in the container' s IPC namespace. When someone logins to the K8S node itself he/she will not be able to perform OVS commands on the host itself.
 
