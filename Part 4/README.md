@@ -74,7 +74,7 @@ Five new segments are provisioned (one per K8S namespace) on the Tier 1 gateway.
 
 ![](2019-12-18_22-35-23.jpg)
 
-IP Pools for K8S namespaces are automatically carved out from the IP Blocks.
+IP Pool/address space for each K8S namespace iis automatically carved out from the respective IP Block.
 
 ![](2019-12-18_23-12-10.jpg)
 
