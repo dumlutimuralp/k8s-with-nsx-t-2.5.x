@@ -376,7 +376,10 @@ vmware@k8s-worker1:~$ kubeadm join 10.190.22.10:6443 --token txy6bc.o9lpnabsxin9
     --discovery-token-ca-cert-hash sha256:9824b49e691c3ab0dcdeb97b26a57bbb7abf619393a332786a336f2ff5b560e0
 </code></pre>
 
-<b>Note : All nodes will still be in "NotReady" state. This is expected.</b>
+<b>Note : "kubectl get nodes" output will still show all nodes in "NotReady" state. This is expected.</b>
+
+<b>Note 2 : "kubectl get pods -o wide --all-namespaces" will show "core-dns-xxx" Pods status stuck in "ContainerCreating" state. This is because of the same reason and that is CNI Plugin is not ready yet on the K8S nodes.</b>
+
 
 
 
