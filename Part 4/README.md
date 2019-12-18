@@ -3,7 +3,7 @@
 
 # Table of Contents
 [Deploying NSX Components in K8S Cluster](#Deploying-NSX-Components-in-K8S-Cluster)  
-[Creating Namespace and Deploying Test Workloads](#Creating-Namespace-and-Deploying-Test-Workloads)
+[Creating Namespace and Deploying Test Workloads](#Creating-Namespace-and-Deploying-Test-Workloads)  
 [Troubleshooting](#Troubleshooting)
 
 # Deploying NSX Components in K8S Cluster
