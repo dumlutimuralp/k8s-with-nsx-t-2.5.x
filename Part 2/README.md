@@ -6,7 +6,6 @@
 [Ubuntu 18.04 Installation](#Ubuntu-18.04-Installation)  
 [Docker Installation](#Docker-Installation)  
 [K8S Installation](#K8S-Installation)   
-[Python Installation](#Python-Installation)
 
 # NSX Components in K8S Integration
 [Back to Table of Contents](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.5.x/tree/master/Part%202#Table-of-Contents)
