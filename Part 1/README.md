@@ -30,7 +30,7 @@ ESX2' s connectivity, from vCenter GUI, is shown below.
 
 ![](2019-12-04-15-53-37.png)
 
-Two NSX-T Host Transport Nodes are used in this lab (shown below); which are ESX3 and ESX4 which forming the "WorkloadT" cluster. 
+Two NSX-T Host Transport Nodes are used in this lab (shown below); which are ESX3 and ESX4 forming the "WorkloadT" cluster. 
 
 ![](2019-12-04-16-03-32.png)
 
