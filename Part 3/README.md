@@ -115,4 +115,11 @@ Let' s look at the manfiest file "ncp-ubuntu.yaml" in more detail now.
 # Content of Manifest File
 [Back to Table of Contents](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.5.x/tree/master/Part%203#Table-of-Contents)
 
+As mentioned in [Part 2](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.5.x/blob/master/Part%202/README.md) the manifest file in NCP version 2.5 includes all NSX related definitions and parameters as following:  
+- nsx-system namespace specific service account, cluster role, 
+- NCP deployment, 
+- NSX NCP Bootsratp daemonset, 
+- NSX Node Agent daemonset and the respective NCP configmap and NSX Node Agent configmaps
+
+
 
