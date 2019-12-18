@@ -15,9 +15,11 @@ Navigate to "Networking -> Segments" in the NSX-T Simplified UI and then CLICK t
 
 ![](2019-12-18_13-25-54.jpg)
 
+When the ports screen come up then click on three dots on the left of the port on top, and then click on edit, this will bring up the settings screen for that segment port.
+
 ![](2019-12-18_13-31-39.jpg)
 
-When the ports screen come up then click on three dots on the left of the port on top, and then click on edit, this will bring up the settings screen for that segment port.
+![](2019-12-18_13-34-39.jpg)
 
 Configure the tag and scope as shown below.
 
