@@ -66,7 +66,7 @@ NSX-T <v>simplified UI</b>, which corresponds to the <b>Policy API</b> of NSX-T,
 
 Below are the screenshots from the current NSX configuration in simplified UI.
 
-The VLAN segment that is going to be connected to Tier0 is configured below. (as "OCP-K8S-Uplink_Segment") Notice there is no VLAN ID confgured for this segment since the underlying vDS Port Group ("EdgeRouting") will tag the traffic with the appropriate VLAN ID before sending it to the underlying physical network.
+The VLAN segment that is going to be connected to Tier0 is configured below. (as "OCP-K8S-Uplink-Segment") Notice there is no VLAN ID configured for this segment since the underlying vDS Port Group ("EdgeRouting") will tag the traffic with the appropriate VLAN ID before sending it to the underlying physical network.
 
 ![](2019-12-04-16-47-26.png)
 
