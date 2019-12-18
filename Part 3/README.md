@@ -157,7 +157,7 @@ subnet_prefix = 24 : The size of the IP Pools for the namespaces that will be ca
 
 <b>top_tier_router = None :</b> : This parameter is <b>NOT</b> used in this demonstration. Since because in this example a new Tier 1 Gateway os provisioned by NCP for this K8S cluster. However if an existing Tier 1 Gateway is intended to be used then this parameter can point out to an existing Tier 1 Gateway' s UUID. With this option the K8S cluster can be collapsed down to a single Tier 1 Gateway. However do keep in mind that the existing Tier 1 Gateway should have SR component in place (meaning that it should be associated with an Edge Cluster already)  
 
-external_ip_pools_lb = K8S-LB-Pool : This setting defines from which IP pool each K8S service, which is configured with Type : Load Balancer, will allocate its IP from.
+<b>external_ip_pools_lb = K8S-LB-Pool :</b> This setting defines from which IP pool each K8S service, which is configured with Type : Load Balancer, will allocate its IP from.
 
 <b>overlay_tz = 26683c3a-928d-4416-8c61-e248ab788cd5 :</b> The UUID of the existing overlay transport zone that will be used for creating new segments for K8S namespaces and Pod networking.
 
