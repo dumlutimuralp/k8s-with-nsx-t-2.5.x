@@ -64,7 +64,24 @@ At this stage let' s revisit the topology that was shown in previous posts.
 
 Since a K8S cluster comes with multiple namespaces (kube-system, default etc.) and K8S services (kubernetes API, DNS etc.) by default, for these K8S constructs it is expected to have the correspding NSX-T constructs created automaticaly by NCP. (NCP is the Pod running with the name "nsx-ncp-848cc8c8ff-k6vfg" (in the previous output) in this demonstration. Let' s check what has changed on NSX-T side.
 
+A new Tier 1 Gateway has been provisioned with the name "k8s-cluster".
 
+![](2019-12-18_22-34-46.jpg)
 
+Five new segments are provisioned (one per K8S namespace) on the Tier 1 gateway. 
+
+![](2019-12-18_22-35-23.jpg)
+
+A new load balancer is provisioned and attached to the Tier 1 Gateway.
+
+![](2019-12-18_22-38-22.jpg)
+
+The VIP for the K8S ingress (Layer 7 LB) is automatically provisioned. The IP adress of the VIP is picked from the "K8S-LB-POOL" automtically.
+
+![](2019-12-18_22-38-40.jpg)
+
+Two firewall rules are automatically provisioned between the sections that were manually configured before (K8S-Begin and K8S0End) . These firewall rules are for K8S node healthcheck traffic destined for CoreDNS Pods.
+
+![](2019-12-18_22-41-42.jpg)
 
 
