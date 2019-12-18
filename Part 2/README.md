@@ -201,7 +201,7 @@ docker-ce:
 ------ OUTPUT OMITTED ------
 ------ OUTPUT OMITTED ------
 ------ OUTPUT OMITTED ------
-     18.06.0~ce~3-0~ubuntu 500
+     <b>18.06.0~ce~3-0~ubuntu 500</b>
         500 https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages
         100 /var/lib/dpkg/status
      18.03.1~ce~3-0~ubuntu 500
