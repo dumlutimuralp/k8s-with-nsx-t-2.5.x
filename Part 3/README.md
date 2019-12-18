@@ -123,6 +123,8 @@ As mentioned in [Part 2](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.5.x/b
 
 ## Edited Parameters in Configmaps
 
+### Configmap for NCP
+
 Open up the "ncp-ubuntu.yaml" file with a text editor and follow the guidelines provided below.
 
 The following <b>three</b> parameters are <b>MANUALLY ADDED</b> in the <b>[nsx_v3]</b> sub-section of the "Configmap for ncp.ini" section of the "ncp-ubuntu.yaml" file. These parameters are mentioned in the official installation document of NCP for K8S.
@@ -133,7 +135,7 @@ The following <b>three</b> parameters are <b>MANUALLY ADDED</b> in the <b>[nsx_v
 
 <b>tier0_gateway = T0-OCP-K8S</b> : Used to define to which T0 gateway the new K8S related Tier 1 gateway (for SNAT and LB) should be connected to.
 
-The existing parameters in the manfiest file, which are used in this demonstration, has "#" removed in each line. Below is the list and explanation of each.
+The existing parameters in the manifest file, which are used in this demonstration, has "#" removed in each line. Below is the list and explanation of each.
 
 <b>nsx_api_managers = 10.190.1.80</b> , <b>nsx_api_user = admin</b> , <b>nsx_api_password = XXXXXXXXXXXXXX</b> : These parameters are for NCP to access/consume the NSX Manager.
 
@@ -162,3 +164,27 @@ The existing parameters in the manfiest file, which are used in this demonstrati
 <b>overlay_tz = 26683c3a-928d-4416-8c61-e248ab788cd5 :</b> The UUID of the existing overlay transport zone that will be used for creating new segments for K8S namespaces and Pod networking.
 
 <b>top_firewall_section_marker = 19d271f0-1623-11ea-93b3-f5b3eacfe64f</b> and <b>bottom_firewall_section_marker = 25a3a710-1623-11ea-93b3-f5b3eacfe64f</b> These parameters are to specify between which sections the K8S orchestrated firewall rules will fall in between. 
+
+The following parameters are used in the <b>"[coe]"</b> sub-section of the configmap for NCP.ini.
+
+<b>cluster = k8s-cluster :</b> Used to identify the NSX-T objects that are provisioned for this K8S cluster. Notice that K8S Node segment ports in "K8S-NodeTransport" are configured with the "k8s-cluster" tag and the "ncp/cluster" scope also with the hostname of Ubuntu node as the tag and "ncp/node_name" scope on NSX-T side.
+
+<b>enable_snat = True :</b> This parameter basically defines that all the K8S Pods in each K8S namespace in this K8S cluster will be Source NATed by default. The Source NAT entries will be automatically configured on the Tier 1 Gateway which will also be automaticcally instantiated for the K8S cluster. The Source NAT IPs will be allocated from IP Pool named "K8S-NAT-POOL" that was configured earlier on NSX-T.
+
+The following parameters are used in the <b>"[k8s]"</b> sub-section of the configmap for NCP.ini.
+
+<b>apiserver_host_ip = 10.190.5.10</b> and <b>apiserver_host_port = 6443</b> : These parameters are to access K8S API.
+
+<b>ingress_mode = nat :</b> This parameter basically defines that NSX-T will use SNAT/DNAT rules for K8S ingress (L7 HTTPS/HTTP load balancing) to access the K8S service at the backend.
+
+### Configmap for NSX Node Agent
+
+<b>ovs_uplink_port = ens192 :</b> The only parameter that needs to be configured in configmap for NSX Node Agent is the uplink port that will be used for Open vSwitch on the K8S Nodes. In this demonstration the second vNIC of each K8S node is used as transport and its ethernet naming is "ens192". 
+
+### Additional Info about the Manifest
+
+Some of the paramaters in the unified manifest can also be used to create new objects in NSX-T, for instance if a given IP Pool is not configured on NSX-T then the respective parameter in the manifest can be populated with the desired IP pool address space and etc. Another example could be assigning a specific name rather than the default name of "br-int" for the OVS oon K8S nodes. 
+
+
+
+
