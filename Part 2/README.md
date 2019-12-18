@@ -28,13 +28,15 @@ Diagram highlighting the recent changes mentioned above with NCP 2.5 is shown be
 
 <b>Note :</b> If desired the topology can be simplified further as following; the Tier 1 Logical Router, the one which is already configured in this demonstration as "T1-K8S-NodeManagement", to which the K8S Nodes' management ethernet is connected, can be used as the single/collapsed Tier 1 Logical Router for all functions mentioned above. The related parameter to be used in NCP config is "top_tier_router" . When this parameter is set to the existing "K8S-NodeManagement" Tier 1 then that Tier 1 logical router will be the single/collapsed Tier 1 router to be used for the K8S cluster (for K8S Node Management, K8S namespace/POD connectivity with or without NAT, K8S services (Load Balancing), K8S Ingress (Layer 7 Load Balancing).
 
-Below diagram shows the new optional topology that can be used with the introduction of NCP 2.5. As mentioned just above, this topology can be further simplified by using a collapsed Tier 1 by configuring the respective NCP config parameter ("top-tier-router") with an existing Tier 1 Router' s name/UUID in the NSX-T domain. In this lab these Tier 1 Logical Router' s kept seperate, meaning "top-tier-router" parameter is left blank hence NSX-T creates a new Tier 1 Logical Router for the K8S cluster. All Tier 1's run in Active/Standby mode.
+Below diagram shows the new optional topology that can be used with the introduction of NCP 2.5. 
 
 ![](2019-12-16_17-05-46.jpg)
 
-* Sixth difference is the K8S Network Policy driven NSX-T DFW rules can be placed in the "Application" category of the DFW in the simplified UI. (with three different options as allow cluster, allow namespace, none)  This is also presented as a new NCP.ini parameter. ("baseline_policy_type")
+As mentioned just above, this topology can be further simplified by using a collapsed Tier 1 by configuring the respective NCP config parameter ("top-tier-router") with an existing Tier 1 Router' s name/UUID in the NSX-T domain. In this lab these Tier 1 Logical Router' s kept seperate, meaning "top-tier-router" parameter is left blank hence NSX-T creates a new Tier 1 Logical Router for the K8S cluster. In the above diagram Tier 1 with Load Balancer runs in active/standby mode (meaning that it has both SR and DR component) however the other Tier1 for K8S Node Management connectivity only runs the DR component since stateful services (NAT, LB etc.) is <b>NOT</b> used on that Tier 1.
 
-* There are additional new parameters introduced in NCP.ini file which will be explained later on.
+* Sixth difference is the K8S Network Policy driven NSX-T DFW rules can be placed in the "Application" category of the DFW in the simplified UI. (with three different options as allow cluster, allow namespace, none)  This is also presented as a new parameter in NSX Config (as "baseline_policy_type")
+
+* There are additional new parameters introduced in NCP config which will be explained in the upcoming parts.
 
 # Ubuntu 18.04 Installation
 [Back to Table of Contents](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.5.x/tree/master/Part%202#Table-of-Contents)
