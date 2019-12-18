@@ -45,11 +45,11 @@ For this lab three VM' s will be configured. Below is a screenshot from one of t
 
 ![](2019-12-13-15-57-25.png)
 
-Note : As mentioned in Part 1; two network interfaces will be used oon each Ubuntu node.
+Note : As mentioned in Part 1; two network interfaces will be used on each Ubuntu node.
 
-For Ubuntu 18.04 installation [this article](https://www.linuxtechi.com/ubuntu-18-04-lts-desktop-installation-guide-screenshots/) outlines the steps needed in a simplified flow structure.
+For Ubuntu 18.04 installation please refer to [this article](https://www.linuxtechi.com/ubuntu-18-04-lts-desktop-installation-guide-screenshots/) which outlines the steps needed in a simplified flow structure.
 
-Additional steps needed to be followed to prepare the Ubuntu OS for Docker and K8S installation. <b>Repeat Steps 1-5 below for all three nodes.</b> In this lab "k8s-master" , "k8s-worker1" and "k8s-worker2" are configured.
+Additional steps needed to be followed to prepare the Ubuntu OS for Docker and K8S installation. <b>Repeat Steps 1-5 below for all three nodes.</b> In this lab "k8s-master" , "k8s-worker1" and "k8s-worker2" are configured. (Either use sudo or escalate to shell for root privileges)
 
 
 1. Configure a unique hostname :
@@ -66,7 +66,7 @@ sudo vi /etc/hosts
 127.0.1.1 k8s-master
 </code></pre>
 
-Worker nodes' hostnames are not included in the hosts file oon the master, as DNS is used in this lab. If DNS does not exist then each node should be able to access each other by name hence all nodes need to be included to the hosts file on each of them.
+Not all nodenames are included in the hosts file of each node, as DNS is used in this lab. If DNS does not exist then since each node should be able to access each other by name, all nodenames and IP addresses must be included in the hosts file on each node.
 
 3. Check the interfaces on the node
 
@@ -94,7 +94,7 @@ network:
   version: 2
   renderer: networkd
   ethernets:
-    ens160:
+    <b>ens160</b>:
       dhcp4: no
       addresses:
         - 10.190.22.10/24
@@ -116,14 +116,14 @@ Verify Changes :
 vmware@k8s-master:~$ <b>ip address show dev ens160</b>
 2: ens160: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
     link/ether 00:50:56:b4:28:b8 brd ff:ff:ff:ff:ff:ff
-    inet 10.190.22.10/24 brd 10.190.22.255 scope global ens160
+    inet <b>10.190.22.10/24</b> brd 10.190.22.255 scope global ens160
        valid_lft forever preferred_lft forever
     inet6 fe80::250:56ff:feb4:28b8/64 scope link
        valid_lft forever preferred_lft forever
 vmware@k8s-master:~$
 </code></pre>
 
-There should not be any IPv4 addresses configured on ens192 interface, can be verified as below.
+There should not be any IPv4 addresses configured on ens192 interface, which can be verified as below.
 
 <pre><code>
 vmware@k8s-master:~$ <b>ip address show dev ens192</b>
@@ -146,8 +146,7 @@ Comment out the line with swap in the "fstab" configuration
 sudo vi /etc/fstab
 </code></pre>
 
-K8S requires the SWAP to be disabled => https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG-1.8.md#before-upgrading
-There is a great blog article about why this step is needed => https://frankdenneman.nl/2018/11/15/kubernetes-swap-and-the-vmware-balloon-driver/
+K8S requires the SWAP to be disabled => https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG-1.8.md#before-upgrading  There is a great blog article about why this step is needed => https://frankdenneman.nl/2018/11/15/kubernetes-swap-and-the-vmware-balloon-driver/  
 How to do it on Ubuntu => https://www.tecmint.com/disable-swap-partition-in-centos-ubuntu/
 
 To be compliant with the versions listed iin [NCP 2.5 Release Notes](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/2.5/rn/NSX-Container-Plugin-25-Release-Notes.html#sysreqs) certain version of K8S will be installed. For this lab K8S 1.14 will be installed. To check the compatibility of K8S <-> Docker [this URL](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG-1.14.md#external-dependencies) can be reviewed. For this lab Docker 18.06 will be installed.
