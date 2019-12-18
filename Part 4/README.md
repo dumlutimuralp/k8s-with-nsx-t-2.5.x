@@ -62,7 +62,9 @@ At this stage let' s revisit the topology that was shown in previous posts.
 
 ![](2019-12-18_22-26-01.jpg)
 
-Since a K8S cluster comes with multiple namespaces (kube-system, default etc.) and K8S services (kubernetes API, DNS etc.) by default, for these K8S constructs it is expected to have the correspding NSX-T constructs created automaticaly by NCP. (NCP is the Pod running with the name "nsx-ncp-848cc8c8ff-k6vfg" (in the previous output) in this demonstration. Let' s check what has changed on NSX-T side.
+Since a K8S cluster comes with multiple namespaces (kube-system, default etc.) and K8S services (kubernetes API, DNS etc.) by default, for these K8S constructs it is expected to have the correspding NSX-T constructs created automaticaly by NCP. (NCP is the Pod running with the name "nsx-ncp-848cc8c8ff-k6vfg" (in the previous output) in this demonstration. 
+
+Let' s check what has changed on NSX-T side.
 
 A new Tier 1 Gateway has been provisioned with the name "k8s-cluster".
 
