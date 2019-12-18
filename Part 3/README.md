@@ -2,9 +2,13 @@
 [Home Page](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.5.x)
 
 # Table of Contents
-[NSX Downloadables for K8S](#NSX-Downloadables-for-K8S)  
 [Configuring NSX Objects for K8S](#Configuring-NSX-Objects-for-K8S)  
+[NSX Downloadables for K8S](#NSX-Downloadables-for-K8S)  
 [Content of Manifest File](#Content-of-Manifest-File)
+
+# Configuring NSX Objects for K8S
+[Back to Table of Contents](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.5.x/tree/master/Part%203#Table-of-Contents)
+
 
 # NSX Downloadables for K8S
 [Back to Table of Contents](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.5.x/tree/master/Part%203#Table-of-Contents)
@@ -25,15 +29,19 @@ Once the .zip file is downloaded and extracted the content is as below.
 
 The breakdown of the content is following :
 
-* Kubernetes : This folder contains the unified manifest file (.yaml) and container image (.tar) for RHEL and Ubuntu operating systems. The same container image is used for NSX Node Agent, NSX Kube Proxy, NSX OVS and NSX NCP Boostrap containers. (Note that there is a container image file for Photon operating system which is used on nodes in Pivotal Application Services (PAS) solution)
+* Kubernetes : This folder contains the unified manifest file (Yaml) and container image (.tar) for RHEL and Ubuntu operating systems. The same container image is used for NSX Node Agent, NSX Kube Proxy, NSX OVS and NSX Dummy containers. (Note that there is a container image also for Photon operating system which is used on nodes in Pivotal Application Services (PAS) solution)
 
-* Openshift : This folder contains the unified manifes files (.yaml) for Openshift baremetal nodes andd Openshift virtual machine nodes.
+* Openshift : This folder contains the unified manifest file (.yaml) for Openshift baremetal nodes andd Openshift virtual machine nodes.
 
 * Open vSwitch : This folder contains the Open vSwitch package for various operating systems. 
 
-* PAS : This folder contains the Pivotal Application Services (PAS) installation file. 
+* PAS : This folder contains the Pivotal Application Services (PAS) specific installation file. 
 
-* Scripts : As the name suggests this folder contains the scripts to clean all the K8S related objects in NSX-T objecct database in a policy API based or management API based NSX-T environment.
+* Scripts : As the name suggests this folder contains the scripts to clean all the K8S related objects in NSX-T objecct database in a policy API based or management API based NSX-T environment in the event of a K8S cluster decommission process.
 
 Since in this environment Ubuntu is the operating system for K8S nodes, "nsx-ncp-ubuntu-2.5.0.14628220.tar" and "ncp-ubuntu.yaml" will be used. 
+
+Let' s look at the manfiest file "ncp-ubuntu.yaml" in more detail now.
+
+
 
