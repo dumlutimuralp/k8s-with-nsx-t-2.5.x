@@ -11,9 +11,9 @@ Copy the "nsx-ncp-ubuntu-2.5.0.14628220.tar" file (located in the Kubernetes fol
 
 Hint : Winscp is a handy tool for file copying from Windows to Linux.  
 
-* On each K8S node, at the prompt, run the "sudo docker load -i nsx-ncp-ubuntu-2.5.0.14628220.tar" command to load the container image to the local Docker container image repository on each K8S node. (This command needs to be run in the same folder which the container image file was copied to on the K8S node) 
+* On each K8S node, at the prompt, run the <b>"sudo docker load -i nsx-ncp-ubuntu-2.5.0.14628220.tar"</b> command to load the container image to the local Docker container image repository on each K8S node. (This command needs to be run in the same folder which the container image file was copied to on the K8S node) 
 
-* On each K8S node, tag the image by running "docker tag registry.local/2.5.0.14628220/nsx-ncp-ubuntu:latest nsx-ncp" . This is needed as the container image name used in the manifest file (edited back in Part 3) is pointing out to the container image name of "nsx-ncp". Verify that the image is correctly renamed by running "sudo docker images" 
+* On each K8S node, tag the image by running <b>"docker tag registry.local/2.5.0.14628220/nsx-ncp-ubuntu:latest nsx-ncp"</b> . This is needed as the container image name used in the manifest file (edited back in Part 3) is pointing out to the container image name of "nsx-ncp". Verify that the image is correctly renamed by running <b>"sudo docker images"</b>.
 
 <pre><code>
 root@k8s-master:~# <b>sudo docker images</b>
