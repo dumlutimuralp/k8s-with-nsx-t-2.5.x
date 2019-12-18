@@ -7,13 +7,13 @@
 # Deploying NSX Components in K8S Cluster
 [Back to Table of Contents](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.5.x/tree/master/Part%204#Table-of-Contents)
 
-Copy the "nsx-ncp-ubuntu-2.5.0.14628220.tar" file (located in the Kubernetes folder of the .zip file downloaded from my.vmware.com) to a folder on each K8S node. This file is the container image file that is used for containers in the NSX Node Agent Pod and also NSX NCP Bootstracp Pod.  
+1. Copy the "nsx-ncp-ubuntu-2.5.0.14628220.tar" file (located in the Kubernetes folder of the .zip file downloaded from my.vmware.com) to a folder on each K8S node. This file is the container image file that is used for containers in the NSX Node Agent Pod and also NSX NCP Bootstracp Pod.  
 
 Hint : Winscp is a handy tool for file copying from Windows to Linux.  
 
-* On each K8S node, at the prompt, run the <b>"sudo docker load -i nsx-ncp-ubuntu-2.5.0.14628220.tar"</b> command to load the container image to the local Docker container image repository on each K8S node. (This command needs to be run in the same folder which the container image file was copied to on the K8S node) 
+2. On each K8S node, at the prompt, run the <b>"sudo docker load -i nsx-ncp-ubuntu-2.5.0.14628220.tar"</b> command to load the container image to the local Docker container image repository on each K8S node. (This command needs to be run in the same folder which the container image file was copied to on the K8S node) 
 
-* On each K8S node, tag the image by running <b>"docker tag registry.local/2.5.0.14628220/nsx-ncp-ubuntu:latest nsx-ncp"</b> . This is needed as the container image name used in the manifest file (edited back in Part 3) is pointing out to the container image name of "nsx-ncp". Verify that the image is correctly renamed by running <b>"sudo docker images"</b>.
+3. On each K8S node, tag the image by running <b>"docker tag registry.local/2.5.0.14628220/nsx-ncp-ubuntu:latest nsx-ncp"</b> . This is needed as the container image name used in the manifest file (edited back in Part 3) is pointing out to the container image name of "nsx-ncp". Verify that the image is correctly renamed by running <b>"sudo docker images"</b>.
 
 <pre><code>
 root@k8s-master:~# <b>sudo docker images</b>
@@ -29,4 +29,34 @@ k8s.gcr.io/pause                     3.1                 da86e6ba6ca1        24 
 root@k8s-master:~#
 </code></pre>
 
-* On K8S master node run "kubectl 
+4. On K8S master node run "kubectl apply -f ncp-ubuntu.yaml". This command will create a namespace as "nsx-system" in the K8S cluster, then associate a few services accounts and cluster roles in that namespace, then create NCP deployment, NSX NCP Bootstracp daemonset, NSX Node Agent daemonset. 
+
+All of the above can be verified by running command "kubectl get all -n nsx-system". As shown below.
+
+<pre><code>
+root@k8s-master:~# kubectl get all -n nsx-system
+NAME                           READY   STATUS    RESTARTS   AGE
+pod/nsx-ncp-848cc8c8ff-k6vfg   1/1     Running   0          13d
+pod/nsx-ncp-bootstrap-4mxj5    1/1     Running   0          14d
+pod/nsx-ncp-bootstrap-72lvg    1/1     Running   0          14d
+pod/nsx-ncp-bootstrap-s5zv4    1/1     Running   0          14d
+pod/nsx-node-agent-5xtm4       3/3     Running   0          14d
+pod/nsx-node-agent-68ls8       3/3     Running   0          14d
+pod/nsx-node-agent-bbpjm       3/3     Running   0          14d
+
+NAME                               DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
+daemonset.apps/nsx-ncp-bootstrap   3         3         3       3            3           <none>          14d
+daemonset.apps/nsx-node-agent      3         3         3       3            3           <none>          14d
+
+NAME                      READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/nsx-ncp   1/1     1            1           14d
+
+NAME                                 DESIRED   CURRENT   READY   AGE
+replicaset.apps/nsx-ncp-848cc8c8ff   1         1         1       14d
+root@k8s-master:~#
+</code></pre>
+
+At this stage let' s revisit the topology that we are aiming for. 
+
+![](2019-12-18_22-26-01.jpg)
+
