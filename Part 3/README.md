@@ -37,13 +37,15 @@ Note#2 : If the admin changes the Kubernetes node name, then the tag ncp/node_na
 
 ## Configuring IP Address Pools and IP Address Blocks
 
-Navigate to "Networking -> IP Address Pools -> IP Address Blocks" and then configure the two IP address blocks shown below. 
-
-Navigate to "Networking -> IP Address Pools -> IP Address Pools (again)" and then configure an IP address pool as following; this pool will be used for the IP address assignment of the K8S Ingress or for each service of K8S Service Type LoadBalancer.
+Navigate to "Networking -> IP Address Pools -> IP Address Pools (again)" and then configure an IP address pool "K8S-LB-POOL" as following; this pool will be used for the IP address assignment of the K8S Ingress or for each service of K8S Service Type LoadBalancer.
 
 ![](2019-12-18_14-10-50.jpg)
 
-Two IP address blocks are configured, as shown below.
+Navigate to "Networking -> IP Address Pools -> IP Address Pools (again)" and then configure an IP address pool "K8S-NAT-POOL" as following; this pool will be used for source NATing the K8S Pods the the namespaces. For each namespace an individual SNAT IP will be picked from this pool. 
+
+![](2019-12-18_14-26-55.jpg)
+
+Navigate to "Networking -> IP Address Pools -> IP Address Blocks" and then configure the two IP address blocks shown below. 
 
 ![](2019-12-18_14-15-39.jpg)
 
