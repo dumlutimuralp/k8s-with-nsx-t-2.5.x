@@ -56,7 +56,7 @@ Currently the logical networking topology looks like below.
 - K8S Node VMs first vNIC will be connected to "K8S-NodeManagement" overlay segment and the second vNIC will be connected to "K8S-NodeTransport" overlay segment. First vNIC will be configured with an IP address from the respective subnet but second vNIC will <b>NOT</b> be configured with any IP as it will serve as a layer 2 transport only. 
 
 
-NSX-T <v>simplified UI</b>, which corresponds to the <b>Policy API</b> of NSX-T, is used for this demonstration. Policy API is the declarative API interface for NSX consumption which was introduced in NSX-T 2.4.0. NSX still provides the option of using either Policy API or legacy MP API for different K8S clusters since it is a parameter in NCP.ini file which is configured per K8S cluster. However, moving forward, recommendation is to use Simplified UI for GUI operations (and Policy API for API operations)
+NSX-T <v>simplified UI</b>, which corresponds to the <b>Policy API</b> of NSX-T, is used for this demonstration. Policy API is the declarative API interface for NSX consumption which was introduced in NSX-T 2.4.0. NSX still provides the option of using either Policy API or legacy MP API for different K8S clusters since it is a parameter in NCP config file which is configured per K8S cluster. However, moving forward, recommendation is to use Simplified UI for GUI operations (and Policy API for API operations)
 
 <b>Simplified UI</b> is the left hand side box and the <b>Advanced UI</b> is the right hand side box in the below screenshot.
 
