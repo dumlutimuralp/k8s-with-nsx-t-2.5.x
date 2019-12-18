@@ -151,11 +151,16 @@ K8S requires the SWAP to be disabled => https://github.com/kubernetes/kubernetes
 There is a great blog article about why this step is needed => https://frankdenneman.nl/2018/11/15/kubernetes-swap-and-the-vmware-balloon-driver/  
 How to do it on Ubuntu => https://www.tecmint.com/disable-swap-partition-in-centos-ubuntu/
 
+6. Install Python
+
+On each node install Python by running <b>"apt-get install python"</b>
+
+Note : Python is needed on each node for CNI Plugin to successfully send calls to NSX Node Agent.
+
 To be compliant with the versions listed in [NCP 2.5 Release Notes](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/2.5/rn/NSX-Container-Plugin-25-Release-Notes.html#sysreqs) certain version of K8S will be installed. For this lab K8S 1.14 will be installed. To check the compatibility of K8S <-> Docker [this URL](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG-1.14.md#external-dependencies) can be reviewed. For this lab Docker 18.06 will be installed.
 
 # Docker Installation
 [Back to Table of Contents](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.5.x/tree/master/Part%202#Table-of-Contents)
-
 
 * Escalate to root in the shell (if not already)
 
@@ -380,11 +385,4 @@ vmware@k8s-worker1:~$ kubeadm join 10.190.22.10:6443 --token txy6bc.o9lpnabsxin9
 <b>Note : "kubectl get nodes" output will still show all nodes in "NotReady" state. This is expected.</b>
 
 <b>Note 2 : "kubectl get pods -o wide --all-namespaces" will show "core-dns-xxx" Pods status stuck in "ContainerCreating" state. This is because of the same reason and that is CNI Plugin is not ready yet on the K8S nodes.</b>
-
-# Python Installation
-[Back to Table of Contents](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.5.x/tree/master/Part%202#Table-of-Contents)
-
-On each node install Python by running "apt-get install python" .
-
-Note : Python is needed on each node for CNI Plugin to successfully send calls to NSX Node Agent.
 
