@@ -30,7 +30,7 @@ Diagram highlighting the recent changes mentioned above with NCP 2.5 is shown be
 
 Below diagram shows the new optional topology that can be used with the introduction of NCP 2.5. 
 
-![](2019-12-16_17-05-46.jpg)
+![](2019-12-18_14-07-02.jpg)
 
 As mentioned just above, this topology can be further simplified by using a collapsed Tier 1 by configuring the respective NCP config parameter ("top-tier-router") with an existing Tier 1 Router' s name/UUID in the NSX-T domain. In this lab these Tier 1 Gateway/Logical Router' s kept seperate, meaning "top-tier-router" parameter is left blank hence NSX-T creates a new Tier 1 Gateway/Logical Router for the K8S cluster. In the above diagram Tier 1 with Load Balancer runs in active/standby mode (meaning that it has both SR and DR component) however the other Tier1 for K8S Node Management connectivity only runs the DR component since stateful services (NAT, LB etc.) is <b>NOT</b> used on that Tier 1.
 
