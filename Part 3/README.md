@@ -121,5 +121,63 @@ As mentioned in [Part 2](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.5.x/b
 - NSX NCP Bootsratp daemonset, 
 - NSX Node Agent daemonset and the respective NCP configmap and NSX Node Agent configmaps
 
+## Edited Parameters in Configmaps
+
+Open up the "ncp-ubuntu.yaml" file with a text editor and follow the guidelines provided below.
+
+The following three parameters <b>ARE MANUALLY ADDED</b> in the <b>[nsx_v3]</b> sub-section of the "Configmap for ncp.ini" section of the "ncp-ubuntu.yaml" file. These parameters are mentioned in the official installation document of NCP for K8S.
+
+<b>policy_nsxapi = True :</b> Used to define that NCP should use NSX-T policy API to create objects in NSX-T. 
+
+<b>single_tier_topology = True :</b> This parameter basically defines that Tier1 Gateway level consumption will be used. Meaning that all the K8S cluster related SNAT and Load Balancer configuration will take place on a Tier 1 Gateway.
+
+<b>tier0_gateway = T0-OCP-K8S</b> : Used to define to which T0 gateway the new K8S related Tier 1 gateway (for SNAT and LB) should be connected to.
+
+The existing parameters in the manfiest file, which are used in this demonstration, has "#" removed in each line. Below is the list and explanation of each.
+
+nsx_api_managers = 10.190.1.80 , nsx_api_user = admin , nsx_api_password = XXXXXXXXXXXXXX : These parameters are for NCP to access/consume the NSX Manager.
+
+insecure = True : NSX Manager server certificate is not verified.
+
+l4_lb_auto_scaling = True : When the scalability limits of the Load Balancer is met then additional load balancer instances (meaning additional Tier 1 Gateways) will be automatially provisioned.
+
+default_ingress_class_nsx = True : When the developer does not use ingress class annotation in his/her manifest then NSX-T Load Balancer will be used as ingress. 
+
+service_size = SMALL : The size of the NSX-T Load Balancer, that will be instantiated automatially (with the K8S cluster). 
+
+ container_ip_blocks = K8S-POD-IP-BLOCK
+
+cluster = k8s-cluster : Used to identify the NSX-T objects that are provisioned for this K8S cluster. Notice that K8S Node segment ports in "K8S-NodeTransport" are configured with the "k8s-cluster" tag and the "ncp/cluster" scope also with the hostname of Ubuntu node as the tag and "ncp/node_name" scope on NSX-T side.
+
+enable_snat = True : This parameter basically defines that all the K8S Pods in each K8S namespace in this K8S cluster will be SNATed (to be able to access the other resources in the datacenter external to NSX domain) . The SNAT rules will be autoatically provisioned on Tier 0 Router in this lab. The SNAT IP will be allocated from IP Pool named "K8S-NAT-Pool" that was configured back in Part 3.
+
+apiserver_host_ip = 10.190.5.10 , apiserver_host_port = 6443 : These parameters are for NCP to access K8S API.
+
+ingress_mode = nat : This parameter basically defines that NSX will use SNAT/DNAT rules for K8S ingress (L7 HTTPS/HTTP load balancing) to access the K8S service at the backend.
 
 
+
+
+top_tier_router = T0-K8S-Domain : The name of the Logical Router that will be used for implementing SNAT rules for the Pods in the K8S Namespaces.
+
+overlay_tz = TZ-Overlay : The name of the existing overlay transport zone that will be used for creating new logical switches/segments for K8S namespaces and container networking.
+
+subnet_prefix = 24 : The size of the IP Pools for the namespaces that will be carved out from the main "K8S-POD-IP-BLOCK" configured in Part 3 (172.25.0.0 /16). Whenever a new K8S namespace is created a /24 IP pool will be allocated from thatthat IP block.
+
+use_native_loadbalancer = True : This setting is to use NSX-T load balancer for K8S Service Type : Load Balancer. Whenever a new K8S service is exposed with the Type : Load Balancer then a VIP will be provisioned on NSX-T LB attached to a Tier 1 Logical Router dedicated for LB function. The VIP will be allocated from the IP Pool named "K8S-LB-Pool" that was configured back in Part 3.
+
+default_ingress_class_nsx = True : This is to use NSX-T load balancer for K8S ingress (L7 HTTP/HTTPS load balancing) , instead of other solutions such as NGINX, HAProxy etc. Whenever a K8S ingress object is created, a Layer 7 rule will be configured on the NSX-T load balancer.
+
+service_size = 'SMALL' : This setting configures a small sized NSX-T Load Balancer for the K8S cluster. Options are Small/Medium/Large. This is the Load Balancer instance which is attached to a dedicated Tier 1 Logical Router in the topology.
+
+container_ip_blocks = K8S-POD-IP-BLOCK : This setting defines from which IP block each K8S namespace will carve its IP Pool/IP address space from. (172.25.0.0 /16 in this case) Size of each K8S namespace pool was defined with subnet_prefix parameter above)
+
+external_ip_pools = K8S-NAT-Pool : This setting defines from which IP pool each SNAT IP will be allocated from. Whenever a new K8S namespace is created, then a NAT IP will be allocated from this pool. (10.190.7.100 to 10.190.7.150 in this case)
+
+external_ip_pools_lb = K8S-LB-Pool : This setting defines from which IP pool each K8S service, which is configured with Type : Load Balancer, will allocate its IP from. (10.190.6.100 to 10.190.6.150 in this case)
+
+top_firewall_section_marker = Section1 and bottom_firewall_section_marker = Section2 : This is to specify between which sections the K8S orchestrated firewall rules will fall in between.
+
+One additional configuration that is made in the yml file is removing the "#" from the line where it says "serviceAccountName: ncp-svc-account" . So that the NCP Pod has appropriate role and access to K8S cluster resources
+
+The edited yml file, "ncp-deployment-custom.yml" in this case, can now be deployed from anywhere. In this environment this yml file is copied to /home/vmware folder in K8S Master Node and deployed in the "nsx-system" namespace with the following command.
