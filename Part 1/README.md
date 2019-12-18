@@ -12,6 +12,8 @@ Two ESX clusters are used for this demonstration. One is "ManagementEdge" cluste
 
 ![](2019-12-04-15-15-03.png)
 
+Note : NSX Manager cluster is running on a seperate cluster.
+
 A single NSX-T Edge Transport Node  is used for this lab, named as EdgeNode03. As there are multiple solutions consuming the same NSX-T deployment, there are actually additional Edge VMs in this environment. The focus will be on EdgeNode03 VM only and it is hosted on ESX2. 
 
 ![](2019-12-04-14-35-28.png)
