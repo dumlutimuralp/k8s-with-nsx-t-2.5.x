@@ -28,7 +28,7 @@ Diagram highlighting the recent changes mentioned above with NCP 2.5 is shown be
 
 <b>Note :</b> If desired the topology can be simplified further as following; the Tier 1 Gateway/Logical Router, the one which is already configured in this demonstration as "T1-K8S-NodeManagement", to which the K8S Nodes' management ethernet is connected, can be used as the single/collapsed Tier 1 Gateway/Logical Router for all functions mentioned above. The related parameter to be used in NCP config is "top_tier_router" . When this parameter is set to the existing "K8S-NodeManagement" Tier 1 then that Tier 1 Gateway/logical router will be the single/collapsed Tier 1 router to be used for the K8S cluster (for K8S Node Management, K8S namespace/POD connectivity with or without NAT, K8S services (Load Balancing), K8S Ingress (Layer 7 Load Balancing).
 
-Below diagram shows the new optional topology that can be used with the introduction of NCP 2.5. 
+Below diagram shows the new optional topology that can be used with the introduction of NCP 2.5. The IP address spaces mentioned in this diagram will be explained in the next post.
 
 ![](2019-12-18_14-07-02.jpg)
 
