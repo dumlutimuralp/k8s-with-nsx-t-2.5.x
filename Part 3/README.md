@@ -139,7 +139,7 @@ The existing parameters in the manfiest file, which are used in this demonstrati
 
 <b>insecure = True :</b> NSX Manager server certificate is not verified.
 
-subnet_prefix = 24 : The size of the IP Pools for the namespaces that will be carved out from the main "K8S-POD-IP-BLOCK". Whenever a new K8S namespace is created a /24 IP pool will be allocated from that IP block.
+<b>subnet_prefix = 24 :</b> The size of the IP Pools for the namespaces that will be carved out from the main "K8S-POD-IP-BLOCK". Whenever a new K8S namespace is created a /24 IP pool will be allocated from that IP block.
 
 <b>use_native_loadbalancer = True :</b> This setting is to use NSX-T load balancer for K8S Service Type : Load Balancer. Whenever a new K8S service is exposed with the Type : Load Balancer then a VIP will be provisioned on NSX-T LB attached to a Tier 1 Gateway dedicated for LB function.
 
