@@ -50,7 +50,7 @@ Currently the logical networking topology looks like below.
 ![](2019-12-04-16-22-08.png)
 
 - Tier 0 and Tier 1 are running in EdgeNode03 VM.
-- Tier0 is configured in active/standby mode, peering with underlying physical layer 3 switch through eBGP. 
+- Tier0 is configured in active/standby mode, peering with underlying physical layer 3 switch through eBGP. (Standby Tier0 is not configured in this demonstration)
 - Tier 1 is configured for routing the K8S Node' s management network, which is an overlay segment configured as "K8S-NodeManagement" segment. 
 - "K8S-NodeTransport" segment will only be used as a transport for K8S Pod connectivity. Hence it is not connected to Tier0 or Tier1. This will be explained in detail later on. 
 - K8S Node VMs first vNIC will be connected to "K8S-NodeManagement" overlay segment and the second vNIC will be connected to "K8S-NodeTransport" overlay segment. First vNIC will be configured with an IP address from the respective subnet but second vNIC will <b>NOT</b> be configured with any IP as it will serve as a layer 2 transport only. 
