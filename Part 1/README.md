@@ -84,6 +84,10 @@ BGP is configured between Tier0 and physical layer switch <b>however it is not m
 
 ![](2019-12-04-16-34-52.png)
 
+Route redistribution is configured as shown below. It is important to note that "Tier 1 NAT" and "Tier 1 LB VIP" is selected, since both will be used for different purposes and explained in the upcoming parts of this series.
+
+![](2019-12-18_15-39-10.jpg)
+
 Tier1 is configured as "T1-K8S-NodeManagement" and connected to "T0-OCP-K8S" . Notice that its downlinks are enabled to be announced to Tier0. 
 
 ![](2019-12-04-16-42-04.png)
