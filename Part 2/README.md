@@ -289,7 +289,7 @@ curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add
 sudo apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"
 </code></pre>
 
-### Check Cached kubelet packages in Repository 
+### Check Cached kubelet packages in Repository 
 
 <pre><code>
 vmware@k8s-master:~$ <b>sudo apt-cache policy kubelet</b>
