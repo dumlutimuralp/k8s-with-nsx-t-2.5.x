@@ -2,7 +2,8 @@
 [Home Page](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.5.x)
 
 # Table of Contents
-[Deploying NSX Components in K8S Cluster](#Deploying-NSX-Components-in-K8S-Cluster)
+[Deploying NSX Components in K8S Cluster](#Deploying-NSX-Components-in-K8S-Cluster)  
+[Creating Namespace and Deploying Test Workloads](#Creating-Namespace-and-Deploying-Test-Workloads)
 
 # Deploying NSX Components in K8S Cluster
 [Back to Table of Contents](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.5.x/tree/master/Part%204#Table-of-Contents)
@@ -74,7 +75,7 @@ Five new segments are provisioned (one per K8S namespace) on the Tier 1 gateway.
 
 ![](2019-12-18_22-35-23.jpg)
 
-IP Pool/address space for each K8S namespace iis automatically carved out from the respective IP Block.
+IP Pool/address space for each K8S namespace is automatically carved out from the respective IP Block.
 
 ![](2019-12-18_23-12-10.jpg)
 
@@ -89,5 +90,8 @@ The VIP for the K8S ingress (Layer 7 LB) is automatically provisioned. The IP ad
 Two firewall rules are automatically provisioned between the sections that were manually configured before (K8S-Begin and K8S-End) . These firewall rules are for K8S node healthcheck traffic destined for CoreDNS Pods.
 
 ![](2019-12-18_22-41-42.jpg)
+
+# Creating Namespace and Deploying Test Workloads
+[Back to Table of Contents](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.5.x/tree/master/Part%204#Table-of-Contents)
 
 
