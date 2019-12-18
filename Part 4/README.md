@@ -94,4 +94,8 @@ Two firewall rules are automatically provisioned between the sections that were 
 # Creating Namespace and Deploying Test Workloads
 [Back to Table of Contents](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.5.x/tree/master/Part%204#Table-of-Contents)
 
+Let' s create a new K8S namespace in this K8S cluster and push a deplooment of two Pods in it. Following manifest will be used for this purpose. 
+
+
+
 
