@@ -29,9 +29,9 @@ k8s.gcr.io/pause                     3.1                 da86e6ba6ca1        24 
 root@k8s-master:~#
 </code></pre>
 
-4. On K8S master node run "kubectl apply -f ncp-ubuntu.yaml". This command will create a namespace as "nsx-system" in the K8S cluster, then associate a few services accounts and cluster roles in that namespace, then create NCP deployment, NSX NCP Bootstracp daemonset, NSX Node Agent daemonset. 
+4. On K8S master node, run "kubectl apply -f ncp-ubuntu.yaml". This command will create a namespace as "nsx-system" in the K8S cluster, then associate a few services accounts and cluster roles in that namespace, then create NCP deployment, NSX NCP Bootstracp daemonset, NSX Node Agent daemonset. 
 
-All of the above can be verified by running command "kubectl get all -n nsx-system". As shown below.
+All of the above can be verified by running "kubectl get all -n nsx-system". As shown below.
 
 <pre><code>
 root@k8s-master:~# kubectl get all -n nsx-system
@@ -56,7 +56,15 @@ replicaset.apps/nsx-ncp-848cc8c8ff   1         1         1       14d
 root@k8s-master:~#
 </code></pre>
 
-At this stage let' s revisit the topology that we are aiming for. 
+Note : If any NSX Pods show up in "CrashLoopBackOff" status then the logs of the respective container in the respective Pod can be investigated. Please refer to [Troubleshootng](?????) section for more information.
+
+At this stage let' s revisit the topology that was shown in previous posts.
 
 ![](2019-12-18_22-26-01.jpg)
+
+Since a K8S cluster comes with multiple namespaces (kube-system, default etc.) and K8S services (kubernetes API, DNS etc.) by default, for these K8S constructs it is expected to have the correspding NSX-T constructs created automaticaly by NCP. (NCP is the Pod running with the name "nsx-ncp-848cc8c8ff-k6vfg" (in the previous output) in this demonstration. Let' s check what has changed on NSX-T side.
+
+
+
+
 
