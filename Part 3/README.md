@@ -63,10 +63,13 @@ Navigate to "Security -> East-West Security Distributed Firewall -> Category Spe
 
 ![](2019-12-18_14-41-28.jpg)
 
-
-
 ## Capturing the NSX-T Object Names 
 
+In this step the object UUID or names of the NSX-T objects which will be consumed by K8S need to be captured and noted. For that what needs to be done is <b>clicking on the three dots on the left of the respective object in the NSX-T UI and select "Copy path to clipboard". </b> This action copies the whole API path of the object in which the object UUID/name can be found.
+
+Let' s do this for Tier 0 Gateway and also for one of the IP address pools.
+
+![](2019-12-18_14-49-56.jpg)
 
 
 # NSX Downloadables for K8S
