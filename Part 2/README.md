@@ -6,6 +6,7 @@
 [Ubuntu 18.04 Installation](#Ubuntu-18.04-Installation)  
 [Docker Installation](#Docker-Installation)  
 [K8S Installation](#K8S-Installation) 
+[Python Installation](#Python-Installation)
 
 # NSX Components in K8S Integration
 [Back to Table of Contents](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.5.x/tree/master/Part%202#Table-of-Contents)
@@ -380,7 +381,10 @@ vmware@k8s-worker1:~$ kubeadm join 10.190.22.10:6443 --token txy6bc.o9lpnabsxin9
 
 <b>Note 2 : "kubectl get pods -o wide --all-namespaces" will show "core-dns-xxx" Pods status stuck in "ContainerCreating" state. This is because of the same reason and that is CNI Plugin is not ready yet on the K8S nodes.</b>
 
+# Python Installation
+[Back to Table of Contents](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.5.x/tree/master/Part%202#Table-of-Contents)
 
+On each node install Python by running "apt-get install python" .
 
-
+Note : Python is needed on each node for CNI Plugin to successfully send calls to NSX Node Agent.
 
