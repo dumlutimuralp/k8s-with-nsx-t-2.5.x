@@ -154,7 +154,7 @@ How to do it on Ubuntu => https://www.tecmint.com/disable-swap-partition-in-cent
 
 On each node install Python by running <b>"apt-get install python"</b>
 
-Note : Python is needed on each node for CNI Plugin to successfully send calls to NSX Node Agent.
+<b>Note :</b> Python is needed< on each node for CNI Plugin to successfully send calls to NSX Node Agent.
 
 To be compliant with the versions listed in [NCP 2.5 Release Notes](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/2.5/rn/NSX-Container-Plugin-25-Release-Notes.html#sysreqs) certain version of K8S will be installed. For this lab K8S 1.14 will be installed. To check the compatibility of K8S <-> Docker [this URL](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG-1.14.md#external-dependencies) can be reviewed. For this lab Docker 18.06 will be installed.
 
