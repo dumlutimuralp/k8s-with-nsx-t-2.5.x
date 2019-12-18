@@ -76,11 +76,13 @@ Five new segments are provisioned (one per K8S namespace) on the Tier 1 gateway.
 
 IP Pools for K8S namespaces are automatically carved out from the IP Blocks.
 
+![](2019-12-18_23-12-10.jpg)
+
 A new load balancer is provisioned and attached to the Tier 1 Gateway.
 
 ![](2019-12-18_22-38-22.jpg)
 
-The VIP for the K8S ingress (Layer 7 LB) is automatically provisioned. The IP adress of the VIP is picked from the "K8S-LB-POOL" automtically.
+The VIP for the K8S ingress (Layer 7 LB) is automatically provisioned. The IP adress of the VIP is picked from the "K8S-LB-POOL" automatically.
 
 ![](2019-12-18_22-38-40.jpg)
 
