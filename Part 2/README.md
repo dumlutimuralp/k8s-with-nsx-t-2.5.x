@@ -352,7 +352,7 @@ Then <b>you can join any number of worker nodes by running the following on each
 
 * Check the cluster state 
 
-At this stage kubelet will provide the following error , which can be seen in the output of "kubectl describe nodes" output.
+At this stage <b>kubelet will provide the following error</b>, which can be seen in the output of "kubectl describe nodes" output.
 
 <pre><code>
   Ready            False   Tue, 03 Dec 2019 21:27:26 +0000   Tue, 03 Dec 2019 21:19:26 +0000   KubeletNotReady  <b>runtime network not ready: NetworkReady=false reason:NetworkPluginNotReady message:docker: network plugin is not ready: cni config uninitialized</b>
