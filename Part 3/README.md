@@ -143,11 +143,11 @@ The existing parameters in the manfiest file, which are used in this demonstrati
 
 <b>use_native_loadbalancer = True :</b> This setting is to use NSX-T load balancer for K8S Service Type : Load Balancer. Whenever a new K8S service is exposed with the Type : Load Balancer then a VIP will be provisioned on NSX-T LB attached to a Tier 1 Gateway dedicated for LB function.
 
-<b>l4_lb_auto_scaling = True :</b> When the scalability limits of the Load Balancer is met then additional load balancer instances (meaning additional Tier 1 Gateways) will be automatially provisioned.
+<b>l4_lb_auto_scaling = True :</b> When the scalability limits of the NSX-T Load Balancer is met then additional NSX-T load balancer instances (meaning additional Tier 1 Gateways) will be automatially provisioned.
 
-<b>default_ingress_class_nsx = True :</b> When the developer does not use ingress class annotation in his/her manifest then the default ingress will be NSX-T Load Balancer.
+<b>default_ingress_class_nsx = True :</b> When the developer does not use ingress class annotation in his/her manifest then the default K8S ingress (which means Layer 7 LB) will be NSX-T Load Balancer.
 
-<b>service_size = SMALL :</b> The size of the NSX-T Load Balancer, that will be instantiated automatially (with the K8S cluster). 
+<b>service_size = SMALL :</b> The size of the NSX-T Load Balancer, that will be instantiated and associated with the Tier 1 Gateway automatially.
 
 <b>container_ip_blocks = K8S-POD-IP-BLOCK :</b> This setting defines from which IP block each K8S namespace will carve its IP Pool/IP address space from. Size of each K8S namespace pool was defined with subnet_prefix parameter above.
 
