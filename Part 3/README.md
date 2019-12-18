@@ -125,7 +125,7 @@ As mentioned in [Part 2](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.5.x/b
 
 Open up the "ncp-ubuntu.yaml" file with a text editor and follow the guidelines provided below.
 
-The following three parameters <b>ARE MANUALLY ADDED</b> in the <b>[nsx_v3]</b> sub-section of the "Configmap for ncp.ini" section of the "ncp-ubuntu.yaml" file. These parameters are mentioned in the official installation document of NCP for K8S.
+The following <b>three</b> parameters are <b>MANUALLY ADDED</b> in the <b>[nsx_v3]</b> sub-section of the "Configmap for ncp.ini" section of the "ncp-ubuntu.yaml" file. These parameters are mentioned in the official installation document of NCP for K8S.
 
 <b>policy_nsxapi = True :</b> Used to define that NCP should use NSX-T policy API to create objects in NSX-T. 
 
