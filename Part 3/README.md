@@ -49,7 +49,7 @@ Navigate to "Networking -> IP Address Pools -> IP Address Blocks" and then confi
 
 ![](2019-12-18_14-15-39.jpg)
 
-"K8S-POD-IP-BLOCK" is provisioned as a /16 subnet ("K8S-POD-IP-BLOCK" - 172.31.0.0/16). Whenever a developer creates a new K8S namespace, then this IP Block will be carved out by /24 chunk and a /24 subnet based IP pool will be created in NSX-T automatically. That /24 subnet based IP pool will be assigned to the respective namespace and whenever Pods are created in that namespace, then each POD will pick an IP address from that /24 subnet. (Each namespace which gets an IP Pool out of this "K8S-POD-IP-BLOCK" will be SNATed to an IP address which gets picked from the "K8S-NAT-POOL" configured earlier)
+"K8S-POD-IP-BLOCK" is provisioned as a /16 subnet ("K8S-POD-IP-BLOCK" - 172.31.0.0/16). Whenever a developer creates a new K8S namespace, then this IP Block will be carved out by /24 chunk and a /24 subnet based IP pool will be created in NSX-T automatically. That /24 subnet based IP pool will be assigned to the respective namespace and whenever Pods are created in that namespace, then each POD will pick an IP address from that /24 subnet. (Each namespace which gets an IP Pool out of this "K8S-POD-IP-BLOCK" will be Source NATed to an IP address which gets picked from the "K8S-NAT-POOL" configured earlier)
 
 "K8S-NOSNAT-IP-BLOCK" is also provisioned as a /16 subnet ("K8S-POD-IP-BLOCK" - 10.192.0.0/16) . As the name suggests this IP Block is used for namespaces which will NOT be source NATed. Whenever a developer creates a new K8S namespace with the K8S annonation of " ncp/no_snat: "true" " in the manifest (yaml file), then this IP Block will be used and then this IP Block will be carved out by /24 chunk and a /24 subnet based IP pool will be created in NSX-T automatically. That /24 subnet based IP pool will be assigned to the respective namespace and whenever Pods are created in that namespace, then each POD will pick an IP address from that /24 subnet.
 
@@ -153,7 +153,7 @@ The existing parameters in the manifest file, which are used in this demonstrati
 
 <b>container_ip_blocks = K8S-POD-IP-BLOCK :</b> This setting defines from which IP block each K8S namespace will carve its IP Pool/IP address space from. Size of each K8S namespace pool was defined with subnet_prefix parameter above.
 
-<b>no_snat_ip_blocks = K8S-NOSNAT-IP-BLOCK :</b> This setting defines from which IP block each K8S namespace that <b>will not be SNATed</b>, is going to carve its IP Pool/IP address space from. 
+<b>no_snat_ip_blocks = K8S-NOSNAT-IP-BLOCK :</b> This setting defines from which IP block each K8S namespace, that <b>will not be Source NATed</b>, is going to carve its IP Pool/IP address space from. 
 
 <b>external_ip_pools = K8S-NAT-POOL :</b> This setting defines from which IP pool each SNAT IP will be allocated from. Whenever a new K8S namespace is created, then a NAT IP will be allocated from this pool for that K8S namespace. 
 
