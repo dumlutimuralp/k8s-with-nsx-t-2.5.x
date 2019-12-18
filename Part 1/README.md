@@ -66,11 +66,11 @@ NSX-T <v>simplified UI</b>, which corresponds to the <b>Policy API</b> of NSX-T,
 
 Below are the screenshots from the current NSX configuration in simplified UI.
 
-The VLAN segment that is going to be connected to Tier0 is configured below. (as "OCP-K8S-Uplink-Segment") Notice there is no VLAN ID configured for this segment since the underlying vDS Port Group ("EdgeRouting") will tag the traffic with the appropriate VLAN ID before sending it to the underlying physical network.
+The VLAN segment that is going to be connected to Tier0 Gateway is configured below. (as "OCP-K8S-Uplink-Segment") Notice there is no VLAN ID configured for this segment since the underlying vDS Port Group ("EdgeRouting") will tag the traffic with the appropriate VLAN ID before sending it to the underlying physical network.
 
 ![](2019-12-04-16-47-26.png)
 
-The Tier0 is configured below (as "T0-OCP-K8S"). The  edge cluster is chosen as "EdgeCluster2"
+The Tier0 Gateway is configured below (as "T0-OCP-K8S"). The  edge cluster is chosen as "EdgeCluster2"
 
 ![](2019-12-04-16-34-10.png)
 
@@ -78,13 +78,13 @@ Previously configured uplink segment ("OCP-K8S-Uplink_Segment") is connected to 
 
 ![](2019-12-04-16-38-09.png)
 
-BGP is configured between Tier0 and physical layer switch <b>however it is not mandatory. HA VIP with static routing can also be used.</b>
+BGP is configured between Tier0 Gateway and physical layer switch <b>however it is not mandatory. HA VIP with static routing can also be used.</b>
 
 ![](2019-12-04-16-34-37.png)
 
 ![](2019-12-04-16-34-52.png)
 
-Route redistribution is configured as shown below. It is important to note that "Tier 1 NAT" and "Tier 1 LB VIP" is selected, since both will be used for different purposes and explained in the upcoming parts of this series.
+Tier 0 Gateway route redistribution is configured as shown below. It is important to note that "Tier 1 NAT" and "Tier 1 LB VIP" is selected, since both will be used for different purposes and explained in the upcoming parts of this series.
 
 ![](2019-12-18_15-39-10.jpg)
 
