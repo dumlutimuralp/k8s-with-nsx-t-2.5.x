@@ -216,7 +216,7 @@ vmware@k8s-master:~$
 sudo apt-get install docker-ce=18.06.0~ce~3-0~ubuntu
 </code></pre>
 
-Note : To make sure of an "apt-get update" not to break the compatibility between Docker and K8S, it would be a good practice to apply apt-mark hold on the related components. For example by using "apt-mark hold docker-ce".
+<b>Note :</b> To make sure of an "apt-get update" not to break the compatibility between Docker and K8S, it would be a good practice to apply apt-mark hold on the related components. For example by using "apt-mark hold docker-ce".
 
 * Verify Docker version
 
