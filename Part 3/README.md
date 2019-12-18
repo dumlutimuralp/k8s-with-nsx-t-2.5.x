@@ -19,13 +19,12 @@ When the ports screen come up then click on three dots on the left of the port o
 
 ![](2019-12-18_13-31-39.jpg)
 
-![](2019-12-18_13-34-39.jpg)
-
 Configure the tag and scope as shown below.
+
+![](2019-12-18_13-34-39.jpg)
 
 ![](2019-12-18_13-44-34.jpg)
 
-Note : This time the node name is also used in addition to cluster name.
 
 Repeat the steps for the remaining nodes
 
