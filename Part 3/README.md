@@ -75,7 +75,7 @@ Let' s do this for Tier 0 Gateway and also for one of the IP address pools.
 
 <b>Important Note :</b> If the NSX-T object is renamed later on, the object UUID will still stay the same as specified in the object creation time. Hence double checking the UUID as shown above is an important task.
 
-Repeat the above step for all the IP address pools, IP address blocks, firewall sections and make a note of the object UUID. (For firewall section it will be long string of characters)
+Repeat the above step for all the IP address pools, IP address blocks, firewall sections and make a note of the object UUID, since the data will be used in the NCP config (For firewall section the UUID will be a long string of characters and numbers) 
 
 
 # NSX Downloadables for K8S
