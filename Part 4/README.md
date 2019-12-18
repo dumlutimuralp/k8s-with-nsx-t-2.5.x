@@ -4,6 +4,7 @@
 # Table of Contents
 [Deploying NSX Components in K8S Cluster](#Deploying-NSX-Components-in-K8S-Cluster)  
 [Creating Namespace and Deploying Test Workloads](#Creating-Namespace-and-Deploying-Test-Workloads)
+[Troubleshooting](#Troubleshooting)
 
 # Deploying NSX Components in K8S Cluster
 [Back to Table of Contents](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.5.x/tree/master/Part%204#Table-of-Contents)
@@ -14,7 +15,7 @@ Hint : Winscp is a handy tool for file copying from Windows to Linux.
 
 2. On each K8S node, at the prompt, run the <b>"sudo docker load -i nsx-ncp-ubuntu-2.5.0.14628220.tar"</b> command to load the container image to the local Docker container image repository on each K8S node. (This command needs to be run in the same folder which the container image file was copied to on the K8S node) 
 
-3. On each K8S node, tag the image by running <b>"docker tag registry.local/2.5.0.14628220/nsx-ncp-ubuntu:latest nsx-ncp"</b> . This is needed as the container image name used in the manifest file (edited back in Part 3) is pointing out to the container image name of "nsx-ncp". Verify that the image is correctly renamed by running <b>"sudo docker images"</b>.
+3. On each K8S node, tag the image by running <b>"sudo docker tag registry.local/2.5.0.14628220/nsx-ncp-ubuntu:latest nsx-ncp"</b> . This is needed as the container image name used in the manifest file (edited back in Part 3) is pointing out to the container image name of "nsx-ncp". Verify that the image is correctly renamed by running <b>"sudo docker images"</b>.
 
 <pre><code>
 root@k8s-master:~# <b>sudo docker images</b>
@@ -30,12 +31,12 @@ k8s.gcr.io/pause                     3.1                 da86e6ba6ca1        24 
 root@k8s-master:~#
 </code></pre>
 
-4. On K8S master node, from the folder where the "ncp-ubuntu.yaml" was copied to in the node (in the previous post), run "kubectl apply -f ncp-ubuntu.yaml". This command will create a namespace as "nsx-system" in the K8S cluster, then associate a few services accounts and cluster roles in that namespace, then create NCP deployment, NSX NCP Bootstracp daemonset, NSX Node Agent daemonset. 
+4. On K8S master node, from the folder where the "ncp-ubuntu.yaml" was copied to in the node (in the previous post), run "sudo kubectl apply -f ncp-ubuntu.yaml". This command will create a namespace as "nsx-system" in the K8S cluster, then associate a few services accounts and cluster roles in that namespace, then create NCP deployment, NSX NCP Bootstracp daemonset, NSX Node Agent daemonset. 
 
-All of the above can be verified by running "kubectl get all -n nsx-system". As shown below.
+All of the above can be verified by running "sudo kubectl get all -n nsx-system". As shown below.
 
 <pre><code>
-root@k8s-master:~# kubectl get all -n nsx-system
+root@k8s-master:~# sudo kubectl get all -n nsx-system
 NAME                           READY   STATUS    RESTARTS   AGE
 pod/nsx-ncp-848cc8c8ff-k6vfg   1/1     Running   0          13d
 pod/nsx-ncp-bootstrap-4mxj5    1/1     Running   0          14d
@@ -94,8 +95,59 @@ Two firewall rules are automatically provisioned between the sections that were 
 # Creating Namespace and Deploying Test Workloads
 [Back to Table of Contents](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.5.x/tree/master/Part%204#Table-of-Contents)
 
-Let' s create a new K8S namespace in this K8S cluster and push a deplooment of two Pods in it. Following manifest will be used for this purpose. 
+Let' s create a new K8S namespace in this K8S cluster and push a deployment that contains three replicas in it. Following manifest will be used for this purpose. In the siimplest form, this manifest creates a namespace, then creates a deployment with a replicaset which contains three replica Pods of "nsxdemo" image.
+
+<pre><code>
+apiVersion: v1
+kind: Namespace
+metadata:
+ name: demons
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nsxdemo
+  namespace: demons
+spec:
+  selector:
+    matchLabels:
+      app: nsxdemoapp
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: nsxdemoapp
+    spec:
+      containers:
+      - name: nsx-demo
+        image: dumlutimuralp/nsx-demo
+        ports:
+        - containerPort: 80
+</code></pre>
+
+Save the content above in a demo.yaml file on the K8S master node and in the same folder run below command.
+
+<pre><code>
+root@k8s-master:~# <b>sudo kubectl create -f demo.yaml</b>
+namespace/demons created
+deployment.apps/nsxdemo created
+root@k8s-master:~#
+</code></pre>
+
+Let' s check what has changed in the K8S cluster.
+
+<pre><code>
+root@k8s-master:~# sudo kubectl get ns
+NAME              STATUS   AGE
+default           Active   15d
+<b>demons            Active   5m17s</b>
+kube-node-lease   Active   15d
+kube-public       Active   15d
+kube-system       Active   15d
+nsx-system        Active   14d
+</code></pre>
 
 
-
+# Troubleshooting
+[Back to Table of Contents](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.5.x/tree/master/Part%204#Table-of-Contents)
 
