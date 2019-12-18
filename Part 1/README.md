@@ -88,7 +88,7 @@ Tier1 is configured as "T1-K8S-NodeManagement" and connected to "T0-OCP-K8S" . N
 
 ![](2019-12-04-16-42-04.png)
 
-The "K8S-NodeManagement" segment is configured below and attached to the previously configured "T1-K8S-NodeManagement" Tier1 router. This is a new way of creating a segment and attaching it to Tier1 router. This is used to be done in Tier1 configuration itself. Now with simplified UI a segment is configured, associated with a subnet (by "Set Subnets" and then connected to the appropriate NSX Tier router on the same screen.
+The "K8S-NodeManagement" segment is configured below and attached to the previously configured "T1-K8S-NodeManagement" Tier1 router. This is a new way of creating a segment and attaching it to Tier1 router. This is used to be done in Tier1 configuration itself. Now with simplified UI, a segment is configured, associated with a subnet (by "Set Subnets") and then connected to the appropriate NSX Tier router on the same screen.
 
 ![](2019-12-04-17-01-00.png)
 
