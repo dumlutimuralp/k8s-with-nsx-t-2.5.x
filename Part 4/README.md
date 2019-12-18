@@ -30,7 +30,7 @@ k8s.gcr.io/pause                     3.1                 da86e6ba6ca1        24 
 root@k8s-master:~#
 </code></pre>
 
-4. On K8S master node, run "kubectl apply -f ncp-ubuntu.yaml". This command will create a namespace as "nsx-system" in the K8S cluster, then associate a few services accounts and cluster roles in that namespace, then create NCP deployment, NSX NCP Bootstracp daemonset, NSX Node Agent daemonset. 
+4. On K8S master node, from the folder where the "ncp-ubuntu.yaml" was copied to in the node (in the previous post), run "kubectl apply -f ncp-ubuntu.yaml". This command will create a namespace as "nsx-system" in the K8S cluster, then associate a few services accounts and cluster roles in that namespace, then create NCP deployment, NSX NCP Bootstracp daemonset, NSX Node Agent daemonset. 
 
 All of the above can be verified by running "kubectl get all -n nsx-system". As shown below.
 
