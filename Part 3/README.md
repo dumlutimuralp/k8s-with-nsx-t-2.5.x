@@ -123,9 +123,9 @@ As mentioned in [Part 2](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.5.x/b
 
 ## Edited Parameters in Configmaps
 
-### Configmap for NCP
+Open up the "ncp-ubuntu.yaml" file with a text editor and follow the guidelines provided below to addd/change the parameters in the file.
 
-Open up the "ncp-ubuntu.yaml" file with a text editor and follow the guidelines provided below.
+### Configmap for NCP
 
 The following <b>three</b> parameters are <b>MANUALLY ADDED</b> in the <b>[nsx_v3]</b> sub-section of the "Configmap for ncp.ini" section of the "ncp-ubuntu.yaml" file. These parameters are mentioned in the official installation document of NCP for K8S.
 
@@ -185,6 +185,6 @@ The following parameters are used in the <b>"[k8s]"</b> sub-section of the confi
 
 Some of the paramaters in the unified manifest can also be used to create new objects in NSX-T, for instance if a given IP Pool is not configured on NSX-T then the respective parameter in the manifest can be populated with the desired IP pool address space and etc. Another example could be assigning a specific name rather than the default name of "br-int" for the OVS oon K8S nodes. 
 
+## Next Step
 
-
-
+Make sure to copy the recently edited/saved manifest file (yaml) to the K8S master node (from where the NSX components will be deployed) .
