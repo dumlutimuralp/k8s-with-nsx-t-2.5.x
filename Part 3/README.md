@@ -161,7 +161,9 @@ The existing parameters in the manifest file, which are used in this demonstrati
 
 <b>external_ip_pools_lb = K8S-LB-Pool :</b> This setting defines from which IP pool each K8S service, which is configured with Type : Load Balancer, will allocate its IP from.
 
-<b>overlay_tz = 26683c3a-928d-4416-8c61-e248ab788cd5 :</b> The UUID of the existing overlay transport zone that will be used for creating new segments for K8S namespaces and Pod networking.
+<b>overlay_tz = 26683c3a-928d-4416-8c61-e248ab788cd5 :</b> The UUID of the existing overlay transport zone that will be used for creating new segments for K8S namespaces and Pod networking. 
+
+Note : Transport Zone UUID is pulled by copying the actual value in the "ID" column of the transport zone in the UI.
 
 <b>top_firewall_section_marker = 19d271f0-1623-11ea-93b3-f5b3eacfe64f</b> and <b>bottom_firewall_section_marker = 25a3a710-1623-11ea-93b3-f5b3eacfe64f</b> These parameters are to specify between which sections the K8S orchestrated firewall rules will fall in between. 
 
