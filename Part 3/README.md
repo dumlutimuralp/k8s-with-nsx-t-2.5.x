@@ -187,6 +187,8 @@ The following parameters are used in the <b>"[k8s]"</b> sub-section of the confi
 
 Some of the paramaters in the unified manifest can also be used to create new objects in NSX-T, for instance if a given IP Pool is not configured on NSX-T then the respective parameter in the manifest can be populated with the desired IP pool address space and etc. Another example could be assigning a specific name rather than the default name of "br-int" for the OVS oon K8S nodes. 
 
+The manifest file that is used in this demonstration can be found [here](https://raw.githubusercontent.com/dumlutimuralp/k8s-with-nsx-t-2.5.x/master/Yaml/custom-ncp-ubuntu.yaml)
+
 ## Next Step
 
 Make sure to copy the recently edited/saved manifest file (yaml) to the K8S master node (from where the NSX components will be deployed) .
