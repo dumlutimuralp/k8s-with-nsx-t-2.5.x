@@ -182,7 +182,7 @@ The best way to troubleshoot installation issues or post deployment issues is by
 * For instance in the first attempt of this demonstration,all of the of the nsx node agent or nsx ncp bootstrap pods were getting stuck in CrashLoopBackOff state. To troubleshoot the issue one by one the container logs have been investigated. As shown below.
 
 <pre><code>
-root@k8s-master:~# kubectl get pods -n nsx-system
+root@k8s-master:~# sudo kubectl get pods -n nsx-system
 NAME                       READY   STATUS    RESTARTS   AGE
 nsx-ncp-848cc8c8ff-dlhwq   1/1     Running   0          40m
 nsx-ncp-bootstrap-4mxj5    1/1     Running   0          15d
@@ -191,9 +191,9 @@ nsx-ncp-bootstrap-s5zv4    1/1     Running   0          15d
 nsx-node-agent-5xtm4       3/3     Running   0          15d
 nsx-node-agent-68ls8       3/3     Running   0          15d
 nsx-node-agent-bbpjm       3/3     Running   0          15d
-root@k8s-master:~# kubectl -n nsx-system logs nsx-node-agent-5xtm4
+root@k8s-master:~# sudo kubectl -n nsx-system logs nsx-node-agent-5xtm4
 Error from server (BadRequest): a container name must be specified for pod nsx-node-agent-5xtm4, choose one of: [nsx-node-agent nsx-kube-proxy nsx-ovs]
-root@k8s-master:~# kubectl -n nsx-system describe pod/nsx-node-agent-5xtm4
+root@k8s-master:~# sudo kubectl -n nsx-system describe pod/nsx-node-agent-5xtm4
 Name:               nsx-node-agent-5xtm4
 Namespace:          nsx-system
 Priority:           0
@@ -253,7 +253,7 @@ According to the error above apparently the ovs uplink port was not configured i
 * Or NCP pod itself may be crashing. Then its logs may need to be reviewed. In most of the cases, if there is anything misspelled or configured in the wrong way in the configmap in the ncp section of the manifest yaml then logs will reveal what that error is. To check the logs of the NCP pod below steps should be followed.
 
 <pre><code>
-root@k8s-master:~# kubectl get pods -n nsx-system
+root@k8s-master:~# sudo kubectl get pods -n nsx-system
 NAME                       READY   STATUS    RESTARTS   AGE
 nsx-ncp-848cc8c8ff-dlhwq   1/1     Running   0          56m
 nsx-ncp-bootstrap-4mxj5    1/1     Running   0          15d
@@ -262,7 +262,7 @@ nsx-ncp-bootstrap-s5zv4    1/1     Running   0          15d
 nsx-node-agent-5xtm4       3/3     Running   0          15d
 nsx-node-agent-68ls8       3/3     Running   0          15d
 nsx-node-agent-bbpjm       3/3     Running   0          15d
-root@k8s-master:~# <b>kubectl -n nsx-system logs nsx-ncp-848cc8c8ff-dlhwq --tail=100</b>
+root@k8s-master:~# <b>sudo kubectl -n nsx-system logs nsx-ncp-848cc8c8ff-dlhwq --tail=100</b>
 ----OUTPUT OMITTED----
 , u'is_default': False, u'_create_time': 1559050045084, u'transport_type': u'VLAN', u'_protection': u'NOT_PROTECTED', u'host_switch_id': u'44e9c072-d386-46e6-b3b9-d35806ac323b', u'_revision': 0, u'host_switch_mode': u'STANDARD', u'_last_modified_time': 1559050045084, u'_last_modified_user': u'admin', u'id': u'85143f73-6d5c-4603-8651-e89c11d73004', u'resource_type': u'TransportZone'}], u'result_count': 3}
 1 2019-12-19T00:57:53.104Z k8s-worker1 NSX 9 - [nsx@6876 comp="nsx-container-ncp" subcomp="ncp" level="INFO"] cli.server.container_cli_server Executed client request "ncp" and sending response on {u'cmd': u'get_k8s_api_server_status', u'id': u'7a7b401f-08fa-451c-9a1a-cbf44e3445e2', u'args': {}} CLI server
