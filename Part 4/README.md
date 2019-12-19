@@ -145,8 +145,33 @@ kube-node-lease   Active   15d
 kube-public       Active   15d
 kube-system       Active   15d
 nsx-system        Active   14d
+root@k8s-master:~# kubectl get pods -n demons
+NAME                       READY   STATUS    RESTARTS   AGE
+nsxdemo-65fbb7c8b4-5qwdm   1/1     Running   0          2m24s
+nsxdemo-65fbb7c8b4-j5wk5   1/1     Running   0          2m24s
+nsxdemo-65fbb7c8b4-rw2b7   1/1     Running   0          2m24s
+root@k8s-master:~#
 </code></pre>
 
+Let' s see what has changed on the NSX-T side.
+
+A new segment has been created for "demons" K8s namespace. Also all three Pods are connected to the segment.
+
+![](2019-12-19_00-20-56.jpg)
+
+The segment ports has the K8S Pod names built in to the name of the respectve port.
+
+![](2019-12-19_00-24-51.jpg)
+
+All the K8S metadata is also associated with the segment port on NSX-T.
+
+![](2019-12-19_00-26-18.jpg)
+
+A new IP address pool/address space is also assigned to this namespace.
+
+![](2019-12-19_00-27-34.jpg)
+
+The details of the address pool can be reviewed in Advanced UI by nagivating to Advanced Networking & Security tab then -> Inventory -> Groups -> Ip Pools.
 
 # Troubleshooting
 [Back to Table of Contents](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.5.x/tree/master/Part%204#Table-of-Contents)
