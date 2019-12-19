@@ -176,3 +176,9 @@ The details of the address pool can be reviewed in Advanced UI by nagivating to 
 # Troubleshooting
 [Back to Table of Contents](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.5.x/tree/master/Part%204#Table-of-Contents)
 
+The best 
+
+# Advanced Networking with K8S
+[Back to Table of Contents](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.5.x/tree/master/Part%204#Table-of-Contents)
+
+The [Part 5](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.4.x/tree/master/Part%205) and [Part 6](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.4.x/tree/master/Part%206) of the previous series (K8S with NSX-T 2.4.x) can be reviewed and practiced with NSX-T 2.5.x to learn more about how NSX-T provides native network constructs for K8S workloads.
