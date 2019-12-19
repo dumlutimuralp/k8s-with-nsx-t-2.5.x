@@ -177,7 +177,96 @@ The details of the address pool can be reviewed in Advanced UI by nagivating to 
 # Troubleshooting
 [Back to Table of Contents](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.5.x/tree/master/Part%204#Table-of-Contents)
 
-The best 
+The best way to troubleshoot installation issues or post deployment issues is by looking into the NCP Pod logs or the respective container logs. 
+
+* For instance in the first attempt of this demonstration,all of the of the nsx node agent or nsx ncp bootstrap pods were getting stuck in CrashLoopBackOff state. To troubleshoot the issue one by one the container logs have been investigated. As shown below.
+
+<pre><code>
+root@k8s-master:~# kubectl get pods -n nsx-system
+NAME                       READY   STATUS    RESTARTS   AGE
+nsx-ncp-848cc8c8ff-dlhwq   1/1     Running   0          40m
+nsx-ncp-bootstrap-4mxj5    1/1     Running   0          15d
+nsx-ncp-bootstrap-72lvg    1/1     Running   0          15d
+nsx-ncp-bootstrap-s5zv4    1/1     Running   0          15d
+nsx-node-agent-5xtm4       3/3     Running   0          15d
+nsx-node-agent-68ls8       3/3     Running   0          15d
+nsx-node-agent-bbpjm       3/3     Running   0          15d
+root@k8s-master:~# kubectl -n nsx-system logs nsx-node-agent-5xtm4
+Error from server (BadRequest): a container name must be specified for pod nsx-node-agent-5xtm4, choose one of: [nsx-node-agent nsx-kube-proxy nsx-ovs]
+root@k8s-master:~# kubectl -n nsx-system describe pod/nsx-node-agent-5xtm4
+Name:               nsx-node-agent-5xtm4
+Namespace:          nsx-system
+Priority:           0
+PriorityClassName:  <none>
+Node:               k8s-worker2/10.190.22.12
+Start Time:         Wed, 04 Dec 2019 00:08:10 +0000
+Labels:             component=nsx-node-agent
+                    controller-revision-hash=7cb5bc85d9
+                    pod-template-generation=1
+                    tier=nsx-networking
+                    version=v1
+Annotations:        container.apparmor.security.beta.kubernetes.io/nsx-node-agent: localhost/node-agent-apparmor
+Status:             Running
+IP:                 10.190.22.12
+Controlled By:      DaemonSet/nsx-node-agent
+Containers:
+ <b>nsx-node-agent</b>:
+    Container ID:  docker://0bcebd22cf0f9b820938649e4db5e082730120b52925a9c552b31ff93dd8b59f
+    Image:         nsx-ncp
+    Image ID:      docker://sha256:40aae9a4aeda247a15d278a844a77cb0cd4361d63e4ce869d2969099ef27f264
+----OUTPUT OMITTED----
+    Mounts:
+      /etc/nsx-ujo/ncp.ini from config-volume (ro,path="ncp.ini")
+      /host/proc from proc (ro)
+      /var/run/netns from netns (rw)
+      /var/run/nsx-ujo from cni-sock (rw)
+      /var/run/openvswitch from openvswitch (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from nsx-node-agent-svc-account-token-qj94v (ro)
+ <b>nsx-kube-proxy</b>:
+    Container ID:  docker://e942905a4efe8f34bf6471a13e4b4bebe656d50c686084f8569d7d6c5b135fbf
+    Image:         nsx-ncp
+    Image ID:      docker://sha256:40aae9a4aeda247a15d278a844a77cb0cd4361d63e4ce869d2969099ef27f264
+----OUTPUT OMITTED----
+    Mounts:
+      /etc/nsx-ujo/ncp.ini from config-volume (ro,path="ncp.ini")
+      /var/run/openvswitch from openvswitch (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from nsx-node-agent-svc-account-token-qj94v (ro)
+ <b>nsx-ovs</b>:
+    Container ID:  docker://7ac56f3fc4337ee1637537045384f4b58586e9ca56e43645a93f8e93915c1e01
+    Image:         nsx-ncp
+    Image ID:      docker://sha256:40aae9a4aeda247a15d278a844a77cb0cd4361d63e4ce869d2969099ef27f264
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      start_ovs
+----OUTPUT OMITTED----
+root@k8s-master:~#
+ root@k8s-master:~# <b>kubectl -n nsx-system logs nsx-node-agent-5xtm4 -c nsx-ovs</b>
+----OUTPUT OMITTED----
+[2019-12-04T22:14:40Z ERROR NSX-OVS]: <b>Please specify ovs_uplink_port under section nsx_node_agent in the ncp.ini config file.</b>
+root@k8s-master:~#
+----OUTPUT OMITTED----
+</code></pre>
+
+According to the error above apparently the ovs uplink port was not configured in the ncp-ubuntu.yaml file manifest.
+
+* Or NCP pod itself may be crashing. Then its logs may need to be reviewed. In most of the cases, if there is anything misspelled or configured in the wrong way in the configmap in the ncp section of the manifest yaml then logs will reveal what that error is. To check the logs of the NCP pod below steps should be followed.
+
+<pre><code>
+root@k8s-master:~# kubectl get pods -n nsx-system
+NAME                       READY   STATUS    RESTARTS   AGE
+nsx-ncp-848cc8c8ff-dlhwq   1/1     Running   0          56m
+nsx-ncp-bootstrap-4mxj5    1/1     Running   0          15d
+nsx-ncp-bootstrap-72lvg    1/1     Running   0          15d
+nsx-ncp-bootstrap-s5zv4    1/1     Running   0          15d
+nsx-node-agent-5xtm4       3/3     Running   0          15d
+nsx-node-agent-68ls8       3/3     Running   0          15d
+nsx-node-agent-bbpjm       3/3     Running   0          15d
+root@k8s-master:~# <b>kubectl -n nsx-system logs nsx-ncp-848cc8c8ff-dlhwq --tail=100</b>
+----OUTPUT OMITTED----
+, u'is_default': False, u'_create_time': 1559050045084, u'transport_type': u'VLAN', u'_protection': u'NOT_PROTECTED', u'host_switch_id': u'44e9c072-d386-46e6-b3b9-d35806ac323b', u'_revision': 0, u'host_switch_mode': u'STANDARD', u'_last_modified_time': 1559050045084, u'_last_modified_user': u'admin', u'id': u'85143f73-6d5c-4603-8651-e89c11d73004', u'resource_type': u'TransportZone'}], u'result_count': 3}
+1 2019-12-19T00:57:53.104Z k8s-worker1 NSX 9 - [nsx@6876 comp="nsx-container-ncp" subcomp="ncp" level="INFO"] cli.server.container_cli_server Executed client request "ncp" and sending response on {u'cmd': u'get_k8s_api_server_status', u'id': u'7a7b401f-08fa-451c-9a1a-cbf44e3445e2', u'args': {}} CLI server
+----OUTPUT OMITTED----
 
 # Advanced Networking with K8S
 [Back to Table of Contents](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.5.x/tree/master/Part%204#Table-of-Contents)
