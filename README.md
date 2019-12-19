@@ -49,3 +49,10 @@ This series will be focusing on the delta between NSX-T 2.4.x and NSX-T 2.5.x he
 * Configuring NSX Objects for K8S 
 * NSX Downloadables for K8S  
 * Content of Manifest File
+
+## [Part 4](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.5.x/blob/master/Part%204/README.md)
+
+* Deploying NSX Components in K8S Cluster
+* Creating Namespace and Deploying Test Workloads
+* Advanced Networking with K8S
+* Troubleshooting
