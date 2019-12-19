@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+ name: demons
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nsxdemo
+  namespace: demons
+spec:
+  selector:
+    matchLabels:
+      app: nsxdemoapp
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: nsxdemoapp
+    spec:
+      containers:
+      - name: nsx-demo
+        image: dumlutimuralp/nsx-demo
+        ports:
+        - containerPort: 80
