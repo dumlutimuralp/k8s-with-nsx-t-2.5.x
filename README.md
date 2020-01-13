@@ -54,5 +54,4 @@ This series will be focusing on the delta between NSX-T 2.4.x and NSX-T 2.5.x he
 
 * Deploying NSX Components in K8S Cluster
 * Creating Namespace and Deploying Test Workloads
-* Advanced Networking with K8S
 * Troubleshooting
