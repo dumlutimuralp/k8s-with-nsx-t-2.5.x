@@ -334,6 +334,12 @@ Same check can be done for "kubectl" and "kubeadm"
 sudo apt-get install -y kubectl=1.14.7-00 kubeadm=1.14.7-00 kubelet=1.14.7-00
 </code></pre>
 
+* Initialize the kubernetes cluster
+
+<pre><code>
+sudo kubeadm init
+</code></pre>
+
 At the end of the installation process an output similar too the below one should be observed.
 
 <pre><code>
