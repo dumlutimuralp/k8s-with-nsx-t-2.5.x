@@ -380,7 +380,7 @@ vmware@k8s-master:~$
 
 * Join other nodes to the K8S cluster
 
-Use the command mentioned above on "k8s-worker1" and "k8s-worker2" to join them to the K8S cluster.
+Use the command mentioned below on "k8s-worker1" and "k8s-worker2" to join them to the K8S cluster.
 
 <pre><code>
 vmware@k8s-worker1:~$ kubeadm join 10.190.22.10:6443 --token txy6bc.o9lpnabsxin9vavyfa \
