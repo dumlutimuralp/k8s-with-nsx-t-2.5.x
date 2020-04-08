@@ -266,6 +266,7 @@ root@k8s-master:~# <b>sudo kubectl -n nsx-system logs nsx-ncp-848cc8c8ff-dlhwq -
 , u'is_default': False, u'_create_time': 1559050045084, u'transport_type': u'VLAN', u'_protection': u'NOT_PROTECTED', u'host_switch_id': u'44e9c072-d386-46e6-b3b9-d35806ac323b', u'_revision': 0, u'host_switch_mode': u'STANDARD', u'_last_modified_time': 1559050045084, u'_last_modified_user': u'admin', u'id': u'85143f73-6d5c-4603-8651-e89c11d73004', u'resource_type': u'TransportZone'}], u'result_count': 3}
 1 2019-12-19T00:57:53.104Z k8s-worker1 NSX 9 - [nsx@6876 comp="nsx-container-ncp" subcomp="ncp" level="INFO"] cli.server.container_cli_server Executed client request "ncp" and sending response on {u'cmd': u'get_k8s_api_server_status', u'id': u'7a7b401f-08fa-451c-9a1a-cbf44e3445e2', u'args': {}} CLI server
 ----OUTPUT OMITTED----
+</code></pre>
 
 # Advanced Networking with K8S
 [Back to Table of Contents](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.5.x/tree/master/Part%204#Table-of-Contents)
