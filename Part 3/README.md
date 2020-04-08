@@ -157,7 +157,7 @@ The existing parameters in the manifest file, which are used in this demonstrati
 
 <b>external_ip_pools = K8S-NAT-POOL :</b> This setting defines from which IP pool each SNAT IP will be allocated from. Whenever a new K8S namespace is created, then a NAT IP will be allocated from this pool for that K8S namespace. 
 
-<b>top_tier_router = None :</b> : This parameter is <b>NOT</b> used in this demonstration. Since because in this example a new Tier 1 Gateway os provisioned by NCP for this K8S cluster. However if an existing Tier 1 Gateway is intended to be used then this parameter can point out to an existing Tier 1 Gateway' s UUID. With this option the K8S cluster can be collapsed down to a single Tier 1 Gateway. However do keep in mind that the existing Tier 1 Gateway should have SR component in place (meaning that it should be associated with an Edge Cluster already)  
+<b>top_tier_router = None :</b> : This parameter is <b>NOT</b> used in this demonstration. Since because in this example a new Tier 1 Gateway os provisioned by NCP for this K8S cluster. However if an existing Tier 1 Gateway is intended to be used then this parameter can point out to an existing Tier 1 Gateway' s UUID. With this option the K8S cluster can be collapsed down to a single Tier 1 Gateway. However do keep in mind that the existing Tier 1 Gateway should have SR component in place (meaning that it should be associated with an Edge Cluster already) Essentially this parameter needs to stay as commented out in the config.
 
 <b>external_ip_pools_lb = K8S-LB-Pool :</b> This setting defines from which IP pool each K8S service, which is configured with Type : Load Balancer, will allocate its IP from.
 
