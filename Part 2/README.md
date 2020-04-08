@@ -403,7 +403,7 @@ Note : Kubectl would not be needed on worker nodes but there is no harm in insta
 Use the command mentioned below on "k8s-worker1" and "k8s-worker2" to join them to the K8S cluster.
 
 <pre><code>
-vmware@k8s-worker1:~$ kubeadm join 10.190.22.10:6443 --token txy6bc.o9lpnabsxin9vavyfa \
+vmware@k8s-worker1:~$ sudo kubeadm join 10.190.22.10:6443 --token txy6bc.o9lpnabsxin9vavyfa \
     --discovery-token-ca-cert-hash sha256:9824b49e691c3ab0dcdeb97b26a57bbb7abf619393a332786a336f2ff5b560e0
 </code></pre>
 
