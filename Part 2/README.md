@@ -378,6 +378,14 @@ k8s-master    <b>NotReady</b>    master   10m    v1.14.7
 vmware@k8s-master:~$
 </code></pre>
 
+* Install kubernetes on worker nodes
+
+<pre><code>
+sudo apt-get install -y kubectl=1.14.7-00 kubeadm=1.14.7-00 kubelet=1.14.7-00
+</code></pre>
+
+Note : Kubectl would not be needed on worker nodes but there is no harm in installing it on worker nodes
+
 * Join other nodes to the K8S cluster
 
 Use the command mentioned below on "k8s-worker1" and "k8s-worker2" to join them to the K8S cluster.
