@@ -169,6 +169,8 @@ vmware@k8s-master:~$ sudo -H bash
 root@k8s-master:/home/vmware#
 </code></pre>
 
+OR use "sudo" with each command shown below
+
 ### Install GPG for Docker Repository
 
 Ensure the integrity and authenticity of the images that are downloaded from Docker Hub. GPG is based on Public Key Cryptogragphy (more info here : https://www.gnupg.org/)
@@ -327,6 +329,16 @@ vmware@k8s-master:~$
 Same check can be done for "kubectl" and "kubeadm"
 
 ### Install Kubernetes
+
+* Escalate to root in the shell (if not already)
+
+<pre><code>
+vmware@k8s-master:~$ sudo -H bash
+[sudo] password for vmware:
+root@k8s-master:/home/vmware#
+</code></pre>
+
+OR use "sudo" with each command shown below
 
 #### Install kubernetes on master node 
 
