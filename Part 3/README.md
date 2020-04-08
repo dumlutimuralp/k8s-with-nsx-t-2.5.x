@@ -175,7 +175,7 @@ The following parameters are used in the <b>"[coe]"</b> sub-section of the confi
 
 The following parameters are used in the <b>"[k8s]"</b> sub-section of the configmap for NCP.ini.
 
-<b>apiserver_host_ip = 10.190.5.10</b> and <b>apiserver_host_port = 6443</b> : These parameters are to access K8S API.
+<b>apiserver_host_ip = 10.190.5.10</b> and <b>apiserver_host_port = 6443</b> : These parameters are to access K8S API. In this lab there is a single master node hence its IP address is used here.
 
 <b>ingress_mode = nat :</b> This parameter basically defines that NSX-T will use SNAT/DNAT rules for K8S ingress (L7 HTTPS/HTTP load balancing) to access the K8S service at the backend.
 
