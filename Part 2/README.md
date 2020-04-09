@@ -161,6 +161,8 @@ To be compliant with the versions listed in [NCP 2.5 Release Notes](https://docs
 # Docker Installation
 [Back to Table of Contents](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.5.x/tree/master/Part%202#Table-of-Contents)
 
+**Install Docker on all nodes.** 
+
 * Escalate to root in the shell (if not already)
 
 <pre><code>
