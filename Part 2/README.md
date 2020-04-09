@@ -285,6 +285,7 @@ vmware@k8s-master:~$ <b>sudo systemctl status docker</b>
 # K8S Installation
 [Back to Table of Contents](https://github.com/dumlutimuralp/k8s-with-nsx-t-2.5.x/tree/master/Part%202#Table-of-Contents)
 
+Follow the three steps below (until "Install Kubernetes" section) on all nodes. 
 
 ### Install GPG for Google Repository
 
