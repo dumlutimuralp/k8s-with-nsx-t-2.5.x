@@ -45,7 +45,9 @@ For this lab three VM' s will be configured. Below is a screenshot from one of t
 
 ![](2019-12-13-15-57-25.png)
 
-Note : As mentioned in Part 1; two network interfaces will be used on each Ubuntu node.
+**Note#1 :** As mentioned in Part 1; two network interfaces will be used on each Ubuntu node.
+
+**Note2 :** As mentioned in [NCP 2.5 Release Notes](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/2.5/rn/NSX-Container-Plugin-25-Release-Notes.html), NCP is compatible with Linux Kernel version lower than 4.15.0-59. Hence it is highly recommended to make sure not to update your Linux Kernel version when performing "apt-get update" . To achieve that, **the steps mentioned [in this article](https://www.bonusbits.com/wiki/HowTo:Upgrade_Ubuntu_without_Updating_the_Kernel) should be followed.**
 
 For Ubuntu 18.04 installation please refer to [this article](https://www.linuxtechi.com/ubuntu-18-04-lts-desktop-installation-guide-screenshots/) which outlines the steps needed in a simplified flow structure.
 
