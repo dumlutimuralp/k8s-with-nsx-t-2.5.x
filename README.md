@@ -23,6 +23,8 @@ https://www.vmware.com/resources/compatibility/sim/interop_matrix.php#interop&17
 * NSX Container Plugin 2.5 Release Notes
 https://docs.vmware.com/en/VMware-NSX-T-Data-Center/2.5/rn/NSX-Container-Plugin-25-Release-Notes.html
 
+**NOTE** : Notice there is a specific note about support on up to a specific Linux Kernel version in the release notes. Hence locking your Linux Kernel when updating the Ubuntu Server is important. This is mentioned in the respective section in Part 2.
+
 * NSX Container Plug-in for Kubernetes and Cloud Foundry - Installation and Administration Guide
 https://docs.vmware.com/en/VMware-NSX-T-Data-Center/2.5/rn/NSX-Container-Plugin-25-Release-Notes.html
 
