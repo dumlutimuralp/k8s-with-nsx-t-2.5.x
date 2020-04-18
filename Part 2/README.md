@@ -148,7 +148,7 @@ Comment out the line with swap in the "fstab" configuration
 sudo vi /etc/fstab
 </code></pre>
 
-Sample Outputs are shown below :
+Sample Outputs is shown below :
 
 <pre><code>
 vmware@k8s-master:~$ sudo cat /etc/fstab
