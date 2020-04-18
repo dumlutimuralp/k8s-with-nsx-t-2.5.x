@@ -148,6 +148,26 @@ Comment out the line with swap in the "fstab" configuration
 sudo vi /etc/fstab
 </code></pre>
 
+Sample Outputs are shown below :
+
+<pre><code>
+vmware@k8s-master:~$ sudo cat /etc/fstab
+# /etc/fstab: static file system information.
+#
+# Use 'blkid' to print the universally unique identifier for a
+# device; this may be used with UUID= as a more robust way to name devices
+# that works even if disks are added and removed. See fstab(5).
+#
+# <file system> <mount point>   <type>  <options>       <dump>  <pass>
+# / was on /dev/sda2 during curtin installation
+/dev/disk/by-uuid/ca480e8b-f76f-4429-acc1-50e871ec925e / ext4 defaults 0 0
+<b>/swap.img       none    swap    sw      0       0</b>
+</code></pre>
+
+Comment out the last line in the above output where it says "/swap.img" and save it.
+
+Why turn off swap ? Additional Information is here :  
+
 K8S requires the SWAP to be disabled => https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG-1.8.md#before-upgrading
 There is a great blog article about why this step is needed => https://frankdenneman.nl/2018/11/15/kubernetes-swap-and-the-vmware-balloon-driver/  
 How to do it on Ubuntu => https://www.tecmint.com/disable-swap-partition-in-centos-ubuntu/
